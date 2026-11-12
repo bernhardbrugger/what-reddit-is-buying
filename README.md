@@ -3,7 +3,37 @@
 Every US trading day, a GitHub Action reads what Reddit is buying, selling and arguing about and rewrites the ranking below. No website, no server, nothing to click. This page is the product.
 
 <!-- RANKING:START -->
-_Waiting for the first run. The ranking appears here automatically._
+**Updated:** Thursday, 12 Nov 2026 · 14:56 UTC
+
+### Nvidia Fallout Triggers Tech Sell-Off as Retail Debates Buying the Chaos
+
+🟩🟩🟩🟩🟩🟩🟩🟩🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
+
+🟩 **Bullish 38%** · ⬜ Neutral 0% · 🟥 **Bearish 62%**
+
+> **Dow Jones** 🟢 ▲ 0.11% · **S\&P 500** 🔴 ▼ 0.23% · **Nasdaq** 🔴 ▼ 0.41% · **Russell** 🔴 ▼ 0.72% · **VIX** 🟢 ▲ 5.26%
+
+| # | Ticker | Company | Mentions 24h | Reddit mood | Price |
+|--:|:--|:--|--:|:--|--:|
+| 1 | **NVDA** | NVIDIA Corporation | 3,200 | 🔴 Bearish 35% | – |
+| 2 | **MSTR** | MicroStrategy Incorporated | 120 | 🟢 Bullish 65% | – |
+| 3 | **LUNR** | Intuitive Machines, Inc. | 85 | 🟢 Bullish 70% | – |
+| 4 | **AMAT** | Applied Materials, Inc. | 45 | ⚪ Neutral 50% | – |
+| 5 | **SMCI** | Super Micro Computer, Inc. | 40 | 🔴 Bearish 30% | – |
+| 6 | **ONDS** | Ondas Holdings Inc. | 30 | ⚪ Neutral 52% | – |
+| 7 | **TSHA** | Taysha Gene Therapies, Inc. | 25 | 🟢 Bullish 58% | – |
+| 8 | **SNDK** | SanDisk Corporation | 20 | 🔴 Bearish 35% | – |
+
+#### Desk notes
+
+- **NVDA** (r/wallstreetbets): Traders are reeling and debating buying the massive dip following news of CEO Jensen Huang's unexpected resignation.
+- **MSTR** (r/MSTR): Retail keeps discussing Bitcoin treasury exposure via dedicated daily community threads.
+- **LUNR** (r/IntuitiveMachines): Discussion revolves around Q3 2026 earnings results and ongoing space contract execution.
+- **AMAT** (r/stocks): Retail investors are evaluating chip equipment suppliers as potential dip-buy alternatives alongside tech leaders.
+- **SMCI** (r/wallstreetbets): Flagged among premarket losers as semiconductor sentiment takes a hit from broader leadership fallout.
+- **ONDS** (r/stocks): Investors digest Q3 2026 earnings call details and operational updates.
+- **TSHA** (r/stocks): Traders track post-earnings commentary following the company's Q3 report.
+- **SNDK** (r/wallstreetbets): Caught in the semiconductor sell-off wave as premarket decliners drag down tech sentiment.
 <!-- RANKING:END -->
 
 <sub>Not investment advice. This is an automated summary of public discussion, written by an AI model from search results. Mention counts and sentiment are estimates and can be wrong. Do your own research.</sub>
