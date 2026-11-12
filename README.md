@@ -3,37 +3,37 @@
 Every US trading day, a GitHub Action reads what Reddit is buying, selling and arguing about and rewrites the ranking below. No website, no server, nothing to click. This page is the product.
 
 <!-- RANKING:START -->
-**Updated:** Thursday, 12 Nov 2026 · 14:56 UTC
+**Updated:** Thursday, 12 Nov 2026 · 14:57 UTC
 
-### Nvidia Fallout Triggers Tech Sell-Off as Retail Debates Buying the Chaos
+### Jensen Huang Resignation Rattles Tech as Retail Catches Falling Knives
 
 🟩🟩🟩🟩🟩🟩🟩🟩🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 
-🟩 **Bullish 38%** · ⬜ Neutral 0% · 🟥 **Bearish 62%**
+🟩 **Bullish 42%** · ⬜ Neutral 0% · 🟥 **Bearish 58%**
 
 > **Dow Jones** 🟢 ▲ 0.11% · **S\&P 500** 🔴 ▼ 0.23% · **Nasdaq** 🔴 ▼ 0.41% · **Russell** 🔴 ▼ 0.72% · **VIX** 🟢 ▲ 5.26%
 
 | # | Ticker | Company | Mentions 24h | Reddit mood | Price |
 |--:|:--|:--|--:|:--|--:|
-| 1 | **NVDA** | NVIDIA Corporation | 3,200 | 🔴 Bearish 35% | – |
-| 2 | **MSTR** | MicroStrategy Incorporated | 120 | 🟢 Bullish 65% | – |
-| 3 | **LUNR** | Intuitive Machines, Inc. | 85 | 🟢 Bullish 70% | – |
-| 4 | **AMAT** | Applied Materials, Inc. | 45 | ⚪ Neutral 50% | – |
-| 5 | **SMCI** | Super Micro Computer, Inc. | 40 | 🔴 Bearish 30% | – |
-| 6 | **ONDS** | Ondas Holdings Inc. | 30 | ⚪ Neutral 52% | – |
-| 7 | **TSHA** | Taysha Gene Therapies, Inc. | 25 | 🟢 Bullish 58% | – |
-| 8 | **SNDK** | SanDisk Corporation | 20 | 🔴 Bearish 35% | – |
+| 1 | **NVDA** | Nvidia Corporation | 2,450 | 🔴 Bearish 38% | – |
+| 2 | **LUNR** | Intuitive Machines, Inc. | 180 | 🟢 Bullish 65% | – |
+| 3 | **MSTR** | MicroStrategy Incorporated | 140 | 🟢 Bullish 60% | – |
+| 4 | **AMAT** | Applied Materials, Inc. | 95 | 🟢 Bullish 58% | – |
+| 5 | **SMCI** | Super Micro Computer, Inc. | 85 | 🔴 Bearish 30% | – |
+| 6 | **ONDS** | Ondas Holdings Inc. | 55 | ⚪ Neutral 50% | – |
+| 7 | **TSHA** | Taysha Gene Therapies, Inc. | 40 | ⚪ Neutral 52% | – |
+| 8 | **OTCM** | OTC Markets Group Inc. | 30 | ⚪ Neutral 50% | – |
 
 #### Desk notes
 
-- **NVDA** (r/wallstreetbets): Traders are reeling and debating buying the massive dip following news of CEO Jensen Huang's unexpected resignation.
-- **MSTR** (r/MSTR): Retail keeps discussing Bitcoin treasury exposure via dedicated daily community threads.
-- **LUNR** (r/IntuitiveMachines): Discussion revolves around Q3 2026 earnings results and ongoing space contract execution.
-- **AMAT** (r/stocks): Retail investors are evaluating chip equipment suppliers as potential dip-buy alternatives alongside tech leaders.
-- **SMCI** (r/wallstreetbets): Flagged among premarket losers as semiconductor sentiment takes a hit from broader leadership fallout.
-- **ONDS** (r/stocks): Investors digest Q3 2026 earnings call details and operational updates.
-- **TSHA** (r/stocks): Traders track post-earnings commentary following the company's Q3 report.
-- **SNDK** (r/wallstreetbets): Caught in the semiconductor sell-off wave as premarket decliners drag down tech sentiment.
+- **NVDA** (r/wallstreetbets): Traders are scrambling as CEO Jensen Huang's sudden resignation triggers heavy selling alongside aggressive dip-buying.
+- **LUNR** (r/IntuitiveMachines): Retail interest builds around the space exploration company following its Q3 earnings release.
+- **MSTR** (r/MSTR): Daily discussion threads remain active as Bitcoin proxies continue drawing steady retail capital.
+- **AMAT** (r/stocks): Retail portfolios are targeting semiconductor equipment makers as potential lower-risk plays amid tech volatility.
+- **SMCI** (r/wallstreetbets): The stock is caught in a broader pre-market semiconductor selloff following Nvidia's executive turmoil.
+- **ONDS** (r/stocks): Q3 earnings report triggers fresh chatter around the wireless network provider's operational outlook.
+- **TSHA** (r/stocks): Q3 earnings announcement draws speculative biotech traders looking for clinical milestone updates.
+- **OTCM** (r/stocks): Quarterly earnings release prompts quiet interest in the financial market operator's platform volumes.
 <!-- RANKING:END -->
 
 <sub>Not investment advice. This is an automated summary of public discussion, written by an AI model from search results. Mention counts and sentiment are estimates and can be wrong. Do your own research.</sub>
