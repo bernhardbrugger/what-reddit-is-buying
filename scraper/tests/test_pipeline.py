@@ -1,6 +1,5 @@
 """Offline tests: no network, no real API keys."""
 
-import json
 import sys
 from pathlib import Path
 
@@ -11,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import fetch_sentiment as fs  # noqa: E402
 
-SAMPLE_PATH = Path(__file__).resolve().parents[2] / "public" / "data" / "daily_sentiment.json"
+README = Path(__file__).resolve().parents[2] / "README.md"
 
 
 def ticker(**overrides):
@@ -40,13 +39,13 @@ def report_payload(count=6):
     }
 
 
-# --- the committed sample file must always satisfy the strict schema -------- #
+# --- the committed README must contain the markers the pipeline replaces ---- #
 
-def test_sample_json_is_valid():
-    data = json.loads(SAMPLE_PATH.read_text(encoding="utf-8"))
-    report = fs.DailyReport.model_validate(data)
-    assert report.is_sample is True
-    assert 5 <= len(report.top_tickers) <= 10
+def test_readme_has_ranking_markers():
+    text = README.read_text(encoding="utf-8")
+    assert text.count(fs.RANKING_START) == 1
+    assert text.count(fs.RANKING_END) == 1
+    assert text.index(fs.RANKING_START) < text.index(fs.RANKING_END)
 
 
 # --- secret redaction -------------------------------------------------------- #
@@ -185,18 +184,56 @@ def test_no_reddit_data_aborts(monkeypatch):
         run_fetch(monkeypatch, [{}, {}, {}, {"markets": {}}])
 
 
-# --- atomic write ------------------------------------------------------------- #
+# --- README rendering ------------------------------------------------------------ #
 
-def test_write_report_is_atomic_and_clean(tmp_path):
-    report = fs.DailyReport(
+def make_report(**ticker_overrides):
+    tickers = fs.GeminiReport.model_validate(report_payload()).top_tickers
+    if ticker_overrides:
+        tickers[0] = fs.TickerSentiment.model_validate(ticker(**ticker_overrides))
+    return fs.DailyReport(
         updated_at="2026-11-12T13:30:00Z",
         market_mood=fs.MarketMood(bullish_pct=60, bearish_pct=30, headline="Retail buys the dip"),
-        top_tickers=fs.GeminiReport.model_validate(report_payload()).top_tickers,
+        indexes=[fs.IndexQuote(name="S&P 500", price=6100.0, change_pct=0.42)],
+        top_tickers=tickers,
     )
-    target = tmp_path / "out" / "daily_sentiment.json"
-    fs.write_report(report, target)
-    assert json.loads(target.read_text(encoding="utf-8"))["top_tickers"][0]["ticker"] == "NVDA"
-    assert [p.name for p in target.parent.iterdir()] == ["daily_sentiment.json"]
+
+
+def test_render_contains_table_and_notes():
+    out = fs.render_ranking(make_report())
+    assert "Thursday, 12 Nov 2026 · 13:30 UTC" in out
+    assert "| 1 | **NVDA** |" in out
+    assert sum(1 for line in out.splitlines() if line.startswith("| ") and "**" in line) == 6
+    assert "#### Desk notes" in out
+    assert fs._mood_bar(60, 30) == "🟩" * 12 + "⬜" * 2 + "🟥" * 6
+    assert len(fs._mood_bar(100, 100)) == fs.BAR_CELLS
+
+
+def test_render_neutralises_markdown_injection():
+    evil = "Click ![x](https://evil.example/p.png) [here](https://evil.example) @octocat | <img src=x> `code` #1"
+    out = fs.render_ranking(make_report(company_name=evil, reason=evil + " padding"))
+    for dangerous in ("![x](", "[here](", " @octocat", "<img", "`code`"):
+        assert dangerous not in out
+    # an escaped pipe must not be able to break the table row (7 real column separators)
+    row = next(line for line in out.splitlines() if line.startswith("| 1 |"))
+    assert row.count("|") - row.count("\\|") == 7
+
+
+def test_update_readme_replaces_only_marked_block(tmp_path):
+    readme = tmp_path / "README.md"
+    readme.write_text(f"intro\n{fs.RANKING_START}\nold\n{fs.RANKING_END}\noutro\n", encoding="utf-8")
+    fs.update_readme(make_report(), readme)
+    text = readme.read_text(encoding="utf-8")
+    assert text.startswith("intro\n") and text.endswith("outro\n")
+    assert "old" not in text and "**NVDA**" in text
+    assert [p.name for p in tmp_path.iterdir()] == ["README.md"]  # no temp files left behind
+
+
+def test_update_readme_without_markers_fails_and_keeps_file(tmp_path):
+    readme = tmp_path / "README.md"
+    readme.write_text("no markers here", encoding="utf-8")
+    with pytest.raises(RuntimeError):
+        fs.update_readme(make_report(), readme)
+    assert readme.read_text(encoding="utf-8") == "no markers here"
 
 
 def test_main_without_keys_exits_cleanly(monkeypatch):

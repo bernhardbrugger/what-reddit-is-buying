@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: write   # push the refreshed JSON file
+      contents: write   # commit the refreshed README
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -48,13 +48,13 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scraper/fetch_sentiment.py
 
-      - name: Commit updated data
+      - name: Commit updated ranking
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/daily_sentiment.json
+          git add README.md
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
@@ -62,14 +62,3 @@ jobs:
             git pull --rebase origin "$BRANCH"
             git push origin "HEAD:$BRANCH"
           fi
-
-  deploy:
-    name: Publish site
-    needs: update
-    # Pushes made with the built-in token do not trigger other workflows,
-    # so the site is deployed explicitly right after the data commit.
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    uses: ./.github/workflows/pages.yml

@@ -19,5 +19,5 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Temp files from the atomic JSON writer
-public/data/.tmp-*
+# Temp files from the atomic README writer
+.tmp-*

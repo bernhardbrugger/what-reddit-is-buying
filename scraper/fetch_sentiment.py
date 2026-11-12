@@ -4,7 +4,8 @@ Runs once per trading day (see .github/workflows/daily_update.yml):
 
 1. Pulls Reddit finance chatter and market data from SerpAPI (exactly 4 searches).
 2. Asks Gemini to turn that raw text into a strictly structured report.
-3. Validates every field again locally and writes public/data/daily_sentiment.json.
+3. Validates every field again locally and rewrites the ranking section of README.md
+   (between the RANKING:START / RANKING:END markers), which GitHub shows on the repo page.
 
 Security notes
 --------------
@@ -13,9 +14,10 @@ Security notes
   every line that is printed goes through ``redact()``.
 * Everything that comes back from SerpAPI/Reddit is untrusted. It is cleaned,
   length-limited and fenced inside the prompt, and Gemini's answer is validated
-  against a strict schema before it can reach the public website.
-* If anything fails, the previous JSON file is left untouched and the script
-  exits with a non-zero status, so a bad run can never publish garbage.
+  against a strict schema, and all Markdown control characters are escaped,
+  before anything is written to the public README.
+* If anything fails, the README is left untouched and the script exits with a
+  non-zero status, so a bad run can never publish garbage.
 """
 
 from __future__ import annotations
@@ -42,7 +44,9 @@ from pydantic import BaseModel, Field, ValidationError, field_validator, model_v
 # --------------------------------------------------------------------------- #
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_PATH = REPO_ROOT / "public" / "data" / "daily_sentiment.json"
+README_PATH = REPO_ROOT / "README.md"
+RANKING_START = "<!-- RANKING:START -->"
+RANKING_END = "<!-- RANKING:END -->"
 
 # Tried in order. gemini-2.5-flash is deprecated (shutdown 2026-12-01).
 GEMINI_MODELS = ("gemini-3.6-flash", "gemini-3.5-flash-lite")
@@ -50,7 +54,6 @@ GEMINI_MODELS = ("gemini-3.6-flash", "gemini-3.5-flash-lite")
 MAX_RESULTS_PER_QUERY = 15
 MAX_SNIPPET_CHARS = 400
 MAX_PROMPT_CHARS = 60_000
-SCHEMA_VERSION = 1
 
 SECRET_ENV_VARS = ("SERPAPI_KEY", "GEMINI_API_KEY")
 
@@ -337,8 +340,6 @@ class IndexQuote(BaseModel):
 
 
 class DailyReport(BaseModel):
-    schema_version: int = SCHEMA_VERSION
-    is_sample: bool = False
     updated_at: str
     market_mood: MarketMood
     indexes: list[IndexQuote] = Field(default_factory=list)
@@ -511,17 +512,89 @@ def analyze_with_gemini(raw_text: str, gemini_key: str) -> GeminiReport:
 
 
 # --------------------------------------------------------------------------- #
-# Step 3: write output atomically
+# Step 3: render the ranking into README.md
 # --------------------------------------------------------------------------- #
 
+_MD_SPECIAL = re.compile(r"([\\`*_{}\[\]()#+!|~>&@:$])")
+BAR_CELLS = 20
 
-def write_report(report: DailyReport, path: Path = OUTPUT_PATH) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps(report.model_dump(), ensure_ascii=False, indent=2) + "\n"
-    fd, tmp_name = tempfile.mkstemp(dir=path.parent, prefix=".tmp-", suffix=".json")
+
+def md_escape(value: str) -> str:
+    """Neutralise Markdown/HTML, links, images, @mentions and emoji codes in untrusted text."""
+    return _MD_SPECIAL.sub(r"\\\1", value)
+
+
+def _arrow(pct: float) -> str:
+    return "🟢 ▲" if pct > 0 else "🔴 ▼" if pct < 0 else "⚪ ▬"
+
+
+def _mood_bar(bull: int, bear: int) -> str:
+    bull_cells = round(bull / 100 * BAR_CELLS)
+    bear_cells = min(round(bear / 100 * BAR_CELLS), BAR_CELLS - bull_cells)
+    neutral_cells = BAR_CELLS - bull_cells - bear_cells
+    return "🟩" * bull_cells + "⬜" * neutral_cells + "🟥" * bear_cells
+
+
+def render_ranking(report: DailyReport) -> str:
+    updated = datetime.strptime(report.updated_at, "%Y-%m-%dT%H:%M:%SZ")
+    mood = report.market_mood
+    neutral = 100 - mood.bullish_pct - mood.bearish_pct
+    lines = [
+        f"**Updated:** {updated:%A, %d %b %Y} · {updated:%H:%M} UTC",
+        "",
+        f"### {md_escape(mood.headline)}",
+        "",
+        _mood_bar(mood.bullish_pct, mood.bearish_pct),
+        "",
+        f"🟩 **Bullish {mood.bullish_pct}%** · ⬜ Neutral {neutral}% · 🟥 **Bearish {mood.bearish_pct}%**",
+        "",
+    ]
+
+    if report.indexes:
+        tape = " · ".join(
+            f"**{md_escape(q.name)}** {_arrow(q.change_pct)} {abs(q.change_pct):.2f}%"
+            for q in report.indexes
+        )
+        lines += [f"> {tape}", ""]
+
+    lines += [
+        "| # | Ticker | Company | Mentions 24h | Reddit mood | Price |",
+        "|--:|:--|:--|--:|:--|--:|",
+    ]
+    for t in report.top_tickers:
+        badge = {"bullish": "🟢 Bullish", "bearish": "🔴 Bearish", "neutral": "⚪ Neutral"}[t.sentiment]
+        price = "–"
+        if t.price_change_pct:
+            value = float(t.price_change_pct.rstrip("%"))
+            price = f"{_arrow(value)} {md_escape(t.price_change_pct.lstrip('+-'))}"
+        lines.append(
+            f"| {t.rank} | **{t.ticker}** | {md_escape(t.company_name)} | "
+            f"{t.mentions_estimate:,} | {badge} {t.bullish_pct}% | {price} |"
+        )
+
+    lines += ["", "#### Desk notes", ""]
+    for t in report.top_tickers:
+        lines.append(f"- **{t.ticker}** ({md_escape(t.source_subreddit)}): {md_escape(t.reason)}")
+    return "\n".join(lines)
+
+
+def update_readme(report: DailyReport, path: Path = README_PATH) -> None:
+    """Replace the text between the RANKING markers, atomically."""
+    original = path.read_text(encoding="utf-8")
+    start, end = original.find(RANKING_START), original.find(RANKING_END)
+    if start == -1 or end == -1 or end < start:
+        raise RuntimeError("RANKING:START / RANKING:END markers not found in README.md")
+    updated = (
+        original[: start + len(RANKING_START)]
+        + "\n"
+        + render_ranking(report)
+        + "\n"
+        + original[end:]
+    )
+    fd, tmp_name = tempfile.mkstemp(dir=path.parent, prefix=".tmp-", suffix=".md")
     try:
         with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as handle:
-            handle.write(payload)
+            handle.write(updated)
         os.replace(tmp_name, path)
     finally:
         if os.path.exists(tmp_name):
@@ -529,6 +602,9 @@ def write_report(report: DailyReport, path: Path = OUTPUT_PATH) -> None:
 
 
 def main() -> int:
+    for stream in (sys.stdout, sys.stderr):  # keep logging safe on non-UTF-8 consoles
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     load_dotenv(REPO_ROOT / ".env")  # local development only; ignored by git
     serp_key = os.environ.get("SERPAPI_KEY", "").strip()
     gemini_key = os.environ.get("GEMINI_API_KEY", "").strip()
@@ -550,12 +626,12 @@ def main() -> int:
             indexes=indexes,
             top_tickers=gemini_report.top_tickers,
         )
-        write_report(report)
-    except Exception as exc:  # noqa: BLE001 - report cleanly, keep the old file
-        log(f"Run failed, keeping previous data: {describe_error(exc)}")
+        update_readme(report)
+    except Exception as exc:  # noqa: BLE001 - report cleanly, keep the old README
+        log(f"Run failed, keeping previous ranking: {describe_error(exc)}")
         return 1
 
-    log(f"Done. Wrote {OUTPUT_PATH.relative_to(REPO_ROOT)}")
+    log(f"Done. Updated the ranking in {README_PATH.name}")
     return 0
 
 
