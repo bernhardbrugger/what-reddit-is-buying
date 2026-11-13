@@ -4,7 +4,7 @@
 
 <p align="center">
   <b>The stocks retail is piling into, ranked every trading day.</b><br>
-  Mood-scored · Rank moves · Fresh before the US open
+  Measured mentions · Mood-scored · Rank moves · Fresh before the US open
 </p>
 
 <p align="center">
@@ -47,15 +47,17 @@
 ```mermaid
 flowchart LR
     A([⏰ Every trading day<br/>13:30 UTC]) --> B[🔎 Scan the forums<br/>your communities]
+    A --> M[📏 Measure mentions<br/>and price moves]
     B --> C[🧠 Score the mood<br/>any model you choose]
+    M --> C
     C --> D[🛡️ Validate and sanitize]
     D --> E[📊 Board and trend charts]
     E --> F[(📜 Git history<br/>is the archive)]
     classDef n fill:#0f1418,stroke:#ffb000,color:#ffffff;
-    class A,B,C,D,E,F n;
+    class A,B,M,C,D,E,F n;
 ```
 
-Mentions, mood and rank moves update on their own. Every board is a commit, so the whole history of the radar lives in this repo.
+**Numbers are measured, not guessed.** Mention counts and their 24h growth come from a live Reddit mention tracker, price moves from the last market session. The model only scores the mood and picks the theme, and anything it writes that reads like news, a name or a number is thrown out and replaced by a house line. Every board is a commit, so the whole history of the radar lives in this repo.
 
 ## Make it yours
 
@@ -66,6 +68,10 @@ Everything is controlled from one file, [`config.toml`](config.toml):
 subreddits = ["wallstreetbets", "stocks", "investing", "options", "thetagang"]  # any public subreddit
 extra_sites = ["stocktwits.com"]                                                # any forum site
 
+[data]
+apewisdom_filter = "wallstreetbets"   # where mention counts are measured: all-stocks, wallstreetbets, options, ...
+min_mentions = 50                     # tickers below this stay off the board
+
 [llm]
 provider = "anthropic"          # gemini · anthropic · openai · openrouter · groq · mistral · deepseek · xai
 model = "claude-sonnet-5-5"
@@ -73,7 +79,12 @@ model = "claude-sonnet-5-5"
 
 | Setting | What it does |
 | --- | --- |
-| `sources.subreddits` | Communities on the radar. Add or remove any public subreddit |
+| `sources.subreddits` | Communities scanned for sentiment and context. Add or remove any public subreddit |
+| `data.apewisdom_filter` | Which communities the measured mention counts come from |
+| `data.min_mentions` | Minimum measured mentions to make the board |
+| `data.exclude_tickers` | Tickers to skip, such as broad ETFs |
+| `data.mentions` | `apewisdom` (measured) or `estimate` (model guess, marked with `~`) |
+| `data.prices` | Last-session price moves on or off |
 | `sources.extra_sites` | Extra forum sites, one search each |
 | `sources.keywords` | Words that signal trading activity |
 | `sources.per_query` | Communities per search. Fewer means deeper results and more credits |
@@ -95,6 +106,10 @@ The config is validated on every run. If it would need more searches than `sourc
 3. Run **Actions → Daily Reddit Stock Radar → Run workflow** once. From then on it runs itself, Monday to Friday.
 
 Searches per run: `ceil(communities / per_query)` plus extra sites, daily threads and market data. The default setup uses 4 SerpAPI credits per run.
+
+## Data sources
+
+Forum text via [SerpAPI](https://serpapi.com) (Google), mention counts via [ApeWisdom](https://apewisdom.io), price moves via Yahoo Finance's public chart data, mood scoring by the model you pick. The free sources are best effort: if one is down, the board still publishes, with estimates marked `~` and blank prices instead of invented ones.
 
 ## Built to be public
 

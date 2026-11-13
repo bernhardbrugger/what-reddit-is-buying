@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from typing import Any, Callable
 
 from config import Config
+from marketdata import Candidate
 from models import LLMReport
 from security import describe_error, log
 
@@ -39,8 +40,7 @@ PROVIDERS: dict[str, tuple[str, str | None]] = {
     "xai": ("openai", "https://api.x.ai/v1"),
 }
 
-SYSTEM_TEMPLATE = """\
-You write the daily board of "What Reddit Is Buying": a Wall Street trading-desk ranking of the
+SYSTEM_TEMPLATE = """You write the daily board of "What Reddit Is Buying": a Wall Street trading-desk ranking of the
 stocks retail investors are piling into. Voice: punchy, confident, dry wit, a seasoned desk
 strategist. Short sentences. No emojis, no exclamation marks, no hype clichés like "to the moon".
 Write every text field in {language}.
@@ -51,29 +51,43 @@ HARD RULES
 - Only report real, listed stock tickers. Ignore slang and non-tickers (YOLO, DD, CEO, ATH, FOMO, IMO,
   ETF, EPS, IPO, GDP, USA, ...).
 - Never give investment advice. Never say anyone should buy or sell.
-- Describe retail POSITIONING and MOOD only: what the crowd is doing (loading calls, buying the dip,
-  rotating, taking profits, capitulating). Never state news as fact, never name people, never quote or
-  paraphrase individual posts. If you cannot tell what drives a stock, use theme "other" and a generic line.
-- Never invent numbers. If a price change is not in the data, set price_change_pct to null.
+- `take` and `headline` describe retail POSITIONING and MOOD only: what the crowd is doing (loading calls,
+  buying the dip, rotating, taking profits, capitulating). Write them in sentence case. Never state news
+  as fact, never name people, companies or products, never use digits, never quote or paraphrase posts.
+  A line that breaks these rules is discarded automatically.
+- Never invent numbers.
 - Follow the JSON schema exactly.
 """
 
-USER_TEMPLATE = """\
-Today is {today}. Score the scraped forum and market data below.
+TASK_MEASURED = """1. Score ONLY the tickers in the measured data table below, spelled exactly as given. Do not add others.
+   Copy company_name and mentions_estimate from the table.
+2. For each ticker set bullish_pct (0-100) from the share of buying/bullish voices in the forum text.
+   If the forum text says nothing about a ticker, use 50, theme "other" and stance "holding".
+3. Pick the theme and the stance, and write `take`: ONE punchy line of at most 70 characters.
+"""
 
-TASK
-1. Identify the {top_n} most discussed real stock tickers, most discussed first.
+TASK_ESTIMATED = """1. Identify the {top_n} most discussed real stock tickers, most discussed first.
 2. Prefer the automatic ticker tables that bots post in daily threads (snippets such as
    "1 NVDA 4.2k -6.53% Mood 42% bull") for exact mention counts. Otherwise estimate sensibly.
-3. For each ticker set bullish_pct (0-100) from the share of buying/bullish voices, pick the theme, and
-   write `take`: ONE punchy line of at most 80 characters about how retail is positioned.
-4. Write `headline` (at most 80 characters): a newspaper-style headline on the overall retail mood.
-5. Set market_mood.bullish_pct and market_mood.bearish_pct so that they sum to at most 100.
+3. For each ticker set bullish_pct (0-100) from the share of buying/bullish voices, pick the theme and the
+   stance, and write `take`: ONE punchy line of at most 70 characters.
+"""
 
+USER_TEMPLATE = """Today is {today}. Score the scraped forum and market data below.
+
+TASK
+{task}4. Write `headline` (at most 70 characters, sentence case): a newspaper-style headline on the overall retail mood.
+5. Set market_mood.bullish_pct and market_mood.bearish_pct so that they sum to at most 100.
+{table}
 <raw_data>
 {raw}
 </raw_data>
 """
+
+
+def format_table(candidates: list[Candidate]) -> str:
+    rows = "\n".join(f"{c.ticker} | {c.name} | {c.mentions} mentions in 24h" for c in candidates)
+    return f"\n<measured_data>\n{rows}\n</measured_data>\n"
 
 
 def resolve_api_key(provider: str) -> str:
@@ -204,13 +218,15 @@ ADAPTERS: dict[str, Callable[..., str]] = {
 # --------------------------------------------------------------------------- #
 
 
-def analyze(raw_text: str, cfg: Config, api_key: str) -> LLMReport:
+def analyze(raw_text: str, cfg: Config, api_key: str, candidates: list[Candidate] | None = None) -> LLMReport:
     adapter_name, base_url = PROVIDERS[cfg.llm.provider]
     adapter = ADAPTERS[adapter_name]
     system = SYSTEM_TEMPLATE.format(language=cfg.radar.language)
+    task = TASK_MEASURED if candidates else TASK_ESTIMATED.format(top_n=cfg.radar.top_n)
     user = USER_TEMPLATE.format(
         today=datetime.now(timezone.utc).strftime("%A, %B %d, %Y"),
-        top_n=cfg.radar.top_n,
+        task=task,
+        table=format_table(candidates) if candidates else "",
         raw=raw_text[:MAX_PROMPT_CHARS],
     )
     schema = LLMReport.model_json_schema()
@@ -221,7 +237,7 @@ def analyze(raw_text: str, cfg: Config, api_key: str) -> LLMReport:
         for attempt in range(len(RETRY_DELAYS) + 1):
             try:
                 text = adapter(api_key, model, system, user, schema, base_url)
-                report = LLMReport.model_validate(extract_json(text)).trimmed(cfg.radar.top_n)
+                report = LLMReport.model_validate(extract_json(text))
                 log(f"[llm] {cfg.llm.provider}/{model}: {len(report.top_tickers)} tickers validated")
                 return report
             except Exception as exc:  # noqa: BLE001 - retry, then fall through to the next model

@@ -11,6 +11,7 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 import files
+from models import TICKER_RE
 
 ProviderName = Literal["gemini", "anthropic", "openai", "openrouter", "groq", "mistral", "deepseek", "xai"]
 
@@ -19,6 +20,7 @@ KEYWORD_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9 ]{1,23}$")
 DOMAIN_RE = re.compile(r"^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,24}$")
 MODEL_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:/\-]{0,99}$")
 LANGUAGE_RE = re.compile(r"^[A-Za-z][A-Za-z \-]{1,29}$")
+FILTER_RE = re.compile(r"^[A-Za-z0-9_\-]{2,40}$")
 
 # Google ignores words after roughly the 32nd; stay safely below that.
 MAX_QUERY_TERMS = 30
@@ -80,6 +82,31 @@ class Sources(_Strict):
         return values
 
 
+class Data(_Strict):
+    mentions: Literal["apewisdom", "estimate"] = "apewisdom"
+    apewisdom_filter: str = "all-stocks"
+    prices: bool = True
+    min_mentions: int = Field(default=20, ge=0, le=1000)
+    exclude_tickers: list[str] = Field(
+        default=["SPY", "QQQ", "IWM", "DIA", "VOO", "VTI", "TQQQ", "SQQQ", "SPXL", "SPXS", "UVXY", "VXX"], max_length=60
+    )
+
+    @field_validator("apewisdom_filter")
+    @classmethod
+    def _filter(cls, v: str) -> str:
+        if not FILTER_RE.match(v):
+            raise ValueError("apewisdom_filter must be a plain name such as 'all-stocks' or 'wallstreetbets'")
+        return v
+
+    @field_validator("exclude_tickers")
+    @classmethod
+    def _exclude(cls, values: list[str]) -> list[str]:
+        for t in values:
+            if not TICKER_RE.match(t):
+                raise ValueError(f"invalid ticker {t!r}")
+        return values
+
+
 class Llm(_Strict):
     provider: ProviderName = "gemini"
     model: str = "gemini-3.6-flash"
@@ -96,6 +123,7 @@ class Llm(_Strict):
 class Config(_Strict):
     radar: Radar = Field(default_factory=Radar)
     sources: Sources
+    data: Data = Field(default_factory=Data)
     llm: Llm = Field(default_factory=Llm)
 
     @model_validator(mode="after")

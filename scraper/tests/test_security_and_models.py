@@ -49,56 +49,50 @@ def test_md_escape_blocks_links_images_mentions():
 
 # --- schema validation --------------------------------------------------------- #
 
-def test_valid_report_is_sorted_and_ranked():
-    payload = report_payload()
-    payload["top_tickers"].reverse()
-    report = models.LLMReport.model_validate(payload)
-    assert [t.rank for t in report.top_tickers] == list(range(1, 7))
-    mentions = [t.mentions_estimate for t in report.top_tickers]
-    assert mentions == sorted(mentions, reverse=True)
-
-
-def test_trimmed_keeps_top_n():
-    report = models.LLMReport.model_validate(report_payload(count=8)).trimmed(5)
-    assert len(report.top_tickers) == 5 and report.top_tickers[0].rank == 1
-
-
-@pytest.mark.parametrize("bad", ["YOLO!!", "TOOLONGX", "nv da", "123", ""])
-def test_invalid_tickers_are_rejected(bad):
+def test_llm_report_dedupes_and_needs_three_tickers():
+    payload = report_payload(count=6)
+    payload["top_tickers"].append(ticker_payload(ticker="nvda"))  # duplicate, different case
+    assert len(models.LLMReport.model_validate(payload).top_tickers) == 6
     with pytest.raises(ValidationError):
-        models.TickerSentiment.model_validate(ticker_payload(ticker=bad))
-
-
-def test_unknown_theme_is_rejected():
-    with pytest.raises(ValidationError):
-        models.TickerSentiment.model_validate(ticker_payload(theme="<script>"))
-
-
-def test_sentiment_label_follows_percentage():
-    parse = models.TickerSentiment.model_validate
-    assert parse(ticker_payload(sentiment="bearish", bullish_pct=80)).sentiment == "bullish"
-    assert parse(ticker_payload(sentiment="bullish", bullish_pct=20)).sentiment == "bearish"
-    assert parse(ticker_payload(sentiment="bullish", bullish_pct=50)).sentiment == "neutral"
-
-
-def test_price_change_is_sanitised():
-    parse = models.TickerSentiment.model_validate
-    assert parse(ticker_payload(price_change_pct="3.4%")).price_change_pct == "+3.4%"
-    assert parse(ticker_payload(price_change_pct="-6.5%")).price_change_pct == "-6.5%"
-    assert parse(ticker_payload(price_change_pct="<b>hax</b>")).price_change_pct is None
-    assert parse(ticker_payload(price_change_pct=None)).price_change_pct is None
-
-
-def test_market_mood_never_overflows():
-    mood = models.MarketMood(bullish_pct=90, bearish_pct=60, headline="Wild session on the desk")
-    assert mood.bullish_pct + mood.bearish_pct <= 100
-
-
-def test_too_few_or_duplicate_tickers_fail():
-    with pytest.raises(ValidationError):
-        models.LLMReport.model_validate(report_payload(count=4))
+        models.LLMReport.model_validate(report_payload(count=2))
     dupes = report_payload(count=6)
     for t in dupes["top_tickers"]:
         t["ticker"] = "NVDA"
     with pytest.raises(ValidationError):
         models.LLMReport.model_validate(dupes)
+
+
+@pytest.mark.parametrize("bad", ["YOLO!!", "TOOLONGX", "nv da", "123", ""])
+def test_invalid_tickers_are_rejected(bad):
+    with pytest.raises(ValidationError):
+        models.LLMTicker.model_validate(ticker_payload(ticker=bad))
+
+
+def test_unknown_theme_or_stance_is_rejected():
+    for field, value in (("theme", "<script>"), ("stance", "moon")):
+        with pytest.raises(ValidationError):
+            models.LLMTicker.model_validate(ticker_payload(**{field: value}))
+
+
+def published(**overrides):
+    base = dict(rank=1, ticker="NVDA", company_name="NVIDIA", mentions=10, bullish_pct=70, theme="momentum", take="Calls stacking up.")
+    base.update(overrides)
+    return models.TickerSentiment(**base)
+
+
+def test_sentiment_label_follows_percentage():
+    assert published(bullish_pct=80, sentiment="bearish").sentiment == "bullish"
+    assert published(bullish_pct=20, sentiment="bullish").sentiment == "bearish"
+    assert published(bullish_pct=50).sentiment == "neutral"
+    assert published(bullish_pct=150).bullish_pct == 100
+
+
+def test_price_change_must_be_a_plain_percentage():
+    assert published(price_change_pct="+3.4%").price_change_pct == "+3.4%"
+    assert published(price_change_pct="-6.5%").price_change_pct == "-6.5%"
+    assert published(price_change_pct="<b>hax</b>").price_change_pct is None
+
+
+def test_market_mood_never_overflows():
+    mood = models.MarketMood(bullish_pct=90, bearish_pct=60, headline="Wild session on the desk")
+    assert mood.bullish_pct + mood.bearish_pct <= 100

@@ -44,7 +44,7 @@ def describe_error(exc: BaseException | None) -> str:
 
 _CONTROL_CHARS = re.compile(r"[\x00-\x08\x0b-\x1f\x7f-\x9f​-‏‪-‮⁦-⁩]")
 _WHITESPACE = re.compile(r"\s+")
-_MD_SPECIAL = re.compile(r"([\\`*_{}\[\]()#+!|~>&@:$])")
+_MD_SPECIAL = re.compile(r"([\\`*_{}\[\]()#+!|~<>&@:$])")
 
 
 def clean_text(value: object, limit: int) -> str:

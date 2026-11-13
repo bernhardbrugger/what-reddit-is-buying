@@ -53,6 +53,23 @@ def _move_cell(move: int | str) -> str:
     return "–"
 
 
+def _heat(change: int | None) -> str:
+    """Mention growth vs. 24h ago, as a short label."""
+    if change is None:
+        return ""
+    if change >= 40:
+        return f"🔥 +{change}%"
+    if change > 0:
+        return f"🟢▲ +{change}%"
+    if change < 0:
+        return f"🔴▼ {change}%"
+    return "⚪▬ 0%"
+
+
+def _mentions_text(t) -> str:
+    return f"{'' if t.verified else '~'}{t.mentions:,}"
+
+
 def _truncate(text: str, limit: int) -> str:
     return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
 
@@ -86,7 +103,7 @@ def render_block(
         lines += [f"> {tape}", ""]
 
     lines += [
-        "| # | Move | Ticker | Mentions | Mood | Day | Theme | Signal |",
+        "| # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |",
         "|--:|:-:|:--|--:|:--|--:|:--|:--|",
     ]
     for t in report.top_tickers:
@@ -99,7 +116,8 @@ def render_block(
         lines.append(
             f"| {t.rank} | {_move_cell(moves.get(t.ticker, ''))} "
             f"| **{t.ticker}**<br><sub>{md_escape(t.company_name)}</sub> "
-            f"| {t.mentions_estimate:,} | {badge} {t.bullish_pct}% bull | {price} "
+            f"| {_mentions_text(t)}{('<br><sub>' + _heat(t.mentions_change_pct) + '</sub>') if t.mentions_change_pct is not None else ''} "
+            f"| {badge} {t.bullish_pct}% bull | {price} "
             f"| {emoji} {theme} | {md_escape(t.take)} |"
         )
 
@@ -110,7 +128,16 @@ def render_block(
         ]
 
     watching = " · ".join(f"r/{md_escape(name)}" for name in communities)
-    lines += ["", f"<sub>Watching {len(communities)} communities: {watching}</sub>"]
+    sources = [
+        "Mentions: ApeWisdom (measured)" if report.mentions_source == "apewisdom" else "Mentions: estimated (~)",
+        "Prices: last session, Yahoo Finance" if report.prices_source == "yahoo" else "Prices: n/a",
+        "Mood: AI-scored from forum text",
+    ]
+    lines += [
+        "",
+        f"<sub>{' · '.join(sources)}</sub><br>",
+        f"<sub>Scanning {len(communities)} communities: {watching}</sub>",
+    ]
     return "\n".join(lines)
 
 
@@ -145,7 +172,7 @@ def render_board_svg(report: DailyReport) -> str:
     mood = report.market_mood
     neutral = 100 - mood.bullish_pct - mood.bearish_pct
     updated = datetime.strptime(report.updated_at, "%Y-%m-%dT%H:%M:%SZ")
-    max_mentions = max((t.mentions_estimate for t in report.top_tickers), default=1) or 1
+    max_mentions = max((t.mentions for t in report.top_tickers), default=1) or 1
 
     gauge_w = 896
     bull_w = gauge_w * mood.bullish_pct / 100
@@ -179,14 +206,20 @@ def render_board_svg(report: DailyReport) -> str:
         y = top + i * row_h
         base = y + 27
         color = SENTIMENT_COLOR[t.sentiment]
-        bar_w = max(4.0, 400 * t.mentions_estimate / max_mentions)
+        bar_w = max(4.0, 360 * t.mentions / max_mentions)
         parts += [
             _t(32, base, f"{t.rank:02d}", 18, "#8a6100", weight="700"),
             _t(76, base, t.ticker, 20, "#ffffff", weight="700"),
             f'<rect x="176" y="{y + 11}" width="{bar_w:.1f}" height="16" rx="2" fill="{color}" fill-opacity="0.9"/>',
-            _t(176 + bar_w + 10, base - 2, f"{t.mentions_estimate:,}", 13, "#aab6bf"),
-            _t(700, base, f"{t.bullish_pct}% bull", 14, color, weight="700"),
+            _t(176 + bar_w + 10, base - 2, _mentions_text(t), 13, "#aab6bf"),
+            _t(715, base, f"{t.bullish_pct}% bull", 14, color, weight="700"),
         ]
+        if t.mentions_change_pct is not None:
+            change = t.mentions_change_pct
+            parts.append(
+                _t(624, base - 2, f"{'▲' if change > 0 else '▼' if change < 0 else '▬'} {abs(change)}%", 12,
+                   BULL if change > 0 else BEAR if change < 0 else NEUTRAL)
+            )
         if t.price_change_pct:
             value = float(t.price_change_pct.rstrip("%"))
             glyph = "▲" if value > 0 else "▼" if value < 0 else "▬"
@@ -200,7 +233,7 @@ def render_board_svg(report: DailyReport) -> str:
             parts.append(f'<line x1="32" y1="{y + row_h}" x2="928" y2="{y + row_h}" stroke="#141a1f"/>')
 
     parts += [
-        _t(32, height - 18, "MENTIONS · MOOD · DAY MOVE", 11, "#5a6770", spacing="2"),
+        _t(32, height - 18, "MENTIONS 24H · CHANGE · MOOD · LAST SESSION", 11, "#5a6770", spacing="2"),
         _t(928, height - 18, "Automated estimate. Not financial advice.", 11, "#5a6770", anchor="end"),
         "</g></svg>",
     ]

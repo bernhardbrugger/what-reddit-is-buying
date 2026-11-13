@@ -33,7 +33,7 @@ def entry_from_report(report: DailyReport) -> HistoryEntry:
         bearish_pct=report.market_mood.bearish_pct,
         headline=report.market_mood.headline,
         top=[
-            TickerSnap(ticker=t.ticker, rank=t.rank, mentions=t.mentions_estimate, bullish_pct=t.bullish_pct)
+            TickerSnap(ticker=t.ticker, rank=t.rank, mentions=t.mentions, bullish_pct=t.bullish_pct)
             for t in report.top_tickers
         ],
     )

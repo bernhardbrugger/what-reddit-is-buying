@@ -8,7 +8,7 @@ top_n = 10                 # tickers on the board (5-15)
 language = "English"       # language of the generated one-liners
 
 [sources]
-# Reddit communities to scan. Any public subreddit works, just add its name.
+# Reddit communities scanned for sentiment and context. Any public subreddit works.
 subreddits = [
   "wallstreetbets", "stocks", "investing", "ValueInvesting", "StockMarket", "options",
   "Superstonk", "RobinHood", "smallstreetbets", "StocksAndTrading", "Daytrading", "pennystocks",
@@ -29,6 +29,15 @@ market_data = true         # include index levels for the market line
 # Hard cap on SerpAPI searches per run (= credits per run). The run refuses to
 # start if this config would need more.
 max_searches = 6
+
+[data]
+# "apewisdom" = measured Reddit mention counts (free, no key); "estimate" = let the model guess.
+# If the source is down, the run falls back to estimates and marks them with "~".
+mentions = "apewisdom"
+apewisdom_filter = "all-stocks"   # all-stocks | wallstreetbets | stocks | options | investing | ...
+prices = true                     # last-session price moves from Yahoo Finance
+min_mentions = 20                 # tickers below this do not make the board
+exclude_tickers = ["SPY", "QQQ", "IWM", "DIA", "VOO", "VTI", "TQQQ", "SQQQ", "SPXL", "SPXS", "UVXY", "VXX"]
 
 [llm]
 # provider: gemini | anthropic | openai | openrouter | groq | mistral | deepseek | xai

@@ -61,8 +61,26 @@ def test_api_key_is_never_shared_across_providers(monkeypatch):
 def test_prompts_keep_untrusted_data_fenced_and_voice_rules():
     system = llm.SYSTEM_TEMPLATE.format(language="English")
     assert "UNTRUSTED" in system and "Never give investment advice" in system
-    assert "never name people" in system
+    assert "never name people" in system or "never name people, companies" in system
+    assert "never use digits" in system
     assert "<raw_data>" in llm.USER_TEMPLATE
+
+
+def test_measured_mode_sends_the_data_table_and_forbids_extra_tickers(monkeypatch):
+    from marketdata import Candidate
+
+    seen = {}
+
+    def adapter(key, model, system, user, schema, base_url):
+        seen["user"] = user
+        return good_reply()
+
+    monkeypatch.setitem(llm.ADAPTERS, "gemini", adapter)
+    candidates = [Candidate(ticker="NVDA", name="NVIDIA", mentions=2483), Candidate(ticker="AMD", name="AMD", mentions=575)]
+    llm.analyze("raw", cfg("gemini"), "k" * 12, candidates)
+    assert "NVDA | NVIDIA | 2483 mentions" in seen["user"] and "Do not add others" in seen["user"]
+    llm.analyze("raw", cfg("gemini"), "k" * 12, None)
+    assert "<measured_data>" not in seen["user"] and "most discussed" in seen["user"]
 
 
 # --- orchestration -------------------------------------------------------------- #
@@ -84,7 +102,7 @@ def test_analyze_uses_primary_model(monkeypatch):
     assert len(report.top_tickers) == 8
 
 
-def test_analyze_falls_back_to_second_model_and_trims(monkeypatch):
+def test_analyze_falls_back_to_second_model(monkeypatch):
     seen = []
 
     def adapter(key, model, system, user, schema, base_url):
@@ -94,10 +112,8 @@ def test_analyze_falls_back_to_second_model_and_trims(monkeypatch):
         return good_reply()
 
     monkeypatch.setitem(llm.ADAPTERS, "gemini", adapter)
-    config = cfg("gemini", "m1", "m2")
-    config.radar.top_n = 6
-    report = llm.analyze("raw", config, "k" * 12)
-    assert seen == ["m1", "m2"] and len(report.top_tickers) == 6
+    report = llm.analyze("raw", cfg("gemini", "m1", "m2"), "k" * 12)
+    assert seen == ["m1", "m2"] and len(report.top_tickers) == 8
 
 
 def test_analyze_rejects_invalid_model_output_and_raises_when_all_fail(monkeypatch, capsys):

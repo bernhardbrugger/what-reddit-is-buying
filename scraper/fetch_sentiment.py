@@ -29,7 +29,8 @@ from config import load_config, planned_searches
 from files import REPO_ROOT
 from history import entry_from_report, load_history, previous_entry, rank_moves, save_history, with_entry
 from llm import analyze, resolve_api_key
-from models import DailyReport
+from marketdata import fetch_mentions, fetch_price_changes
+from pipeline import build_report
 from render import render_block, render_board_svg, render_trend_svg, update_readme, write_assets
 from security import describe_error, log
 from sources import fetch_serpapi_data
@@ -62,14 +63,22 @@ def main() -> int:
         log(f"Scanning {len(cfg.sources.subreddits)} communities ({planned_searches(cfg)} searches)...")
         raw_text, indexes = fetch_serpapi_data(serp_key, cfg)
 
-        log(f"Scoring with {cfg.llm.provider}...")
-        scored = analyze(raw_text, cfg, llm_key)
+        candidates = fetch_mentions(cfg)
+        if 0 < len(candidates) < 5:
+            log("[mentions] fewer than 5 measured tickers, falling back to model estimates")
+            candidates = []
 
-        report = DailyReport(
+        log(f"Scoring with {cfg.llm.provider}...")
+        scored = analyze(raw_text, cfg, llm_key, candidates)
+
+        prices: dict[str, str] = {}
+        if cfg.data.prices:
+            wanted = [t.ticker for t in scored.top_tickers if not candidates or t.ticker in {c.ticker for c in candidates}]
+            prices = fetch_price_changes(wanted[: cfg.radar.top_n])
+
+        report = build_report(
+            scored, candidates, prices, indexes, cfg,
             updated_at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            market_mood=scored.market_mood,
-            indexes=indexes,
-            top_tickers=scored.top_tickers,
         )
 
         history = load_history()

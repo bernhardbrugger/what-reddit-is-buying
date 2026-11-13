@@ -2,7 +2,7 @@ import json
 import xml.etree.ElementTree as ET
 
 import pytest
-from conftest import REPO
+from conftest import REPO, report_payload
 
 import files
 import fetch_sentiment
@@ -51,17 +51,29 @@ def test_block_has_board_table_and_no_discussion_text(make_report):
     block = render.render_block(make_report(), {"NVDA": 2, "TSLA": "new"}, ["stocks", "options"], has_trend=True)
     assert "assets/board.svg?v=202611131330" in block and "assets/trend.svg" in block
     assert "| 1 | ▲2 | **NVDA**" in block and "🆕" in block
-    assert "Watching 2 communities: r/stocks · r/options" in block
+    assert "🔥 +55%" in block and "🔴▼ -12%" in block  # mention growth vs. 24h ago
+    assert "Scanning 2 communities: r/stocks · r/options" in block
+    assert "Mentions: ApeWisdom (measured)" in block and "Prices: last session, Yahoo Finance" in block
     assert "Desk notes" not in block and "r/wallstreetbets" not in block
 
 
 def test_block_neutralises_markdown_injection(make_report):
     evil = "Click ![x](https://evil.example/p.png) [here](https://evil.example) @octocat | <img src=x> `code`"
     block = render.render_block(make_report(company_name=evil, take=evil + " padding"), {}, ["stocks"], False)
-    for dangerous in ("![x](", "[here](", " @octocat", "<img src=x", "`code`"):
+    for dangerous in ("![x](", "[here](", " @octocat", " <img src=x", "`code`"):
         assert dangerous not in block
+    assert "\\<img src=x\\>" in block  # the HTML is shown as inert text, not interpreted
     row = next(line for line in block.splitlines() if line.startswith("| 1 |"))
     assert row.count("|") - row.count("\\|") == 9  # real column separators only
+
+
+def test_estimates_are_marked_with_a_tilde(make_report):
+    report = make_report(verified=False, mentions_change_pct=None)
+    report.mentions_source = "estimate"
+    report.prices_source = "none"
+    block = render.render_block(report, {}, ["stocks"], False)
+    assert "| ~1,000 |" in block and "Mentions: estimated (~)" in block and "Prices: n/a" in block
+    assert ">~1,000<" in render.render_board_svg(report)
 
 
 def test_svgs_are_well_formed_and_inert(make_report):
@@ -127,16 +139,19 @@ def test_main_end_to_end_writes_board_assets_and_history(monkeypatch, tmp_path, 
     monkeypatch.setenv("SERPAPI_KEY", "serp-key-value-1234")
     monkeypatch.setenv("LLM_API_KEY", "llm-key-value-12345")
     monkeypatch.setattr(fetch_sentiment, "fetch_serpapi_data", lambda key, cfg: ("raw", report.indexes))
+    from marketdata import Candidate
     from models import LLMReport
-    monkeypatch.setattr(
-        fetch_sentiment, "analyze",
-        lambda raw, cfg, key: LLMReport(market_mood=report.market_mood, top_tickers=report.top_tickers),
-    )
+
+    cands = [Candidate(ticker=t.ticker, name=t.company_name, mentions=t.mentions, mentions_24h_ago=500) for t in report.top_tickers]
+    monkeypatch.setattr(fetch_sentiment, "fetch_mentions", lambda cfg: cands)
+    monkeypatch.setattr(fetch_sentiment, "fetch_price_changes", lambda tickers: {t: "+1.0%" for t in tickers})
+    scored = LLMReport.model_validate(report_payload(count=6))
+    monkeypatch.setattr(fetch_sentiment, "analyze", lambda raw, cfg, key, candidates=None: scored)
 
     assert fetch_sentiment.main() == 0
     text = readme.read_text(encoding="utf-8")
     assert text.startswith("top\n") and text.endswith("bottom\n") and "placeholder" not in text
-    assert "assets/trend.svg" in text and "**NVDA**" in text
+    assert "assets/trend.svg" in text and "**NVDA**" in text and "▲ 1.0%" in text
     assert (tmp_path / "assets" / "board.svg").exists() and (tmp_path / "assets" / "trend.svg").exists()
     saved = json.loads((tmp_path / "data" / "history.json").read_text(encoding="utf-8"))
     assert [e["date"] for e in saved["entries"]][-1] == report.updated_at[:10] or len(saved["entries"]) == 2
