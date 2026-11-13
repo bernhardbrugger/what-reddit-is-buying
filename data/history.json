@@ -2,69 +2,69 @@
  "entries": [
   {
    "date": "2026-11-13",
-   "bullish_pct": 48,
-   "bearish_pct": 52,
-   "headline": "Retail sentiment turns cautious amidst rising market swings",
+   "bullish_pct": 45,
+   "bearish_pct": 55,
+   "headline": "Retail traders split between catching knives and taking profits",
    "top": [
     {
      "ticker": "NVDA",
      "rank": 1,
-     "mentions": 2460,
-     "bullish_pct": 48
+     "mentions": 1435,
+     "bullish_pct": 45
     },
     {
      "ticker": "AMD",
      "rank": 2,
-     "mentions": 564,
-     "bullish_pct": 62
-    },
-    {
-     "ticker": "NBIS",
-     "rank": 3,
-     "mentions": 427,
-     "bullish_pct": 50
+     "mentions": 373,
+     "bullish_pct": 70
     },
     {
      "ticker": "MSFT",
-     "rank": 4,
-     "mentions": 227,
-     "bullish_pct": 50
+     "rank": 3,
+     "mentions": 314,
+     "bullish_pct": 40
     },
     {
-     "ticker": "HR",
-     "rank": 5,
-     "mentions": 116,
+     "ticker": "NBIS",
+     "rank": 4,
+     "mentions": 196,
      "bullish_pct": 50
     },
     {
      "ticker": "MU",
+     "rank": 5,
+     "mentions": 103,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "DTE",
      "rank": 6,
-     "mentions": 114,
+     "mentions": 78,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "HR",
+     "rank": 7,
+     "mentions": 67,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "IT",
+     "rank": 8,
+     "mentions": 57,
      "bullish_pct": 50
     },
     {
      "ticker": "TSLA",
-     "rank": 7,
-     "mentions": 85,
-     "bullish_pct": 45
-    },
-    {
-     "ticker": "DTE",
-     "rank": 8,
-     "mentions": 80,
-     "bullish_pct": 50
+     "rank": 9,
+     "mentions": 53,
+     "bullish_pct": 60
     },
     {
      "ticker": "GOOG",
-     "rank": 9,
-     "mentions": 73,
-     "bullish_pct": 55
-    },
-    {
-     "ticker": "AAPL",
      "rank": 10,
-     "mentions": 72,
-     "bullish_pct": 55
+     "mentions": 52,
+     "bullish_pct": 35
     }
    ]
   }

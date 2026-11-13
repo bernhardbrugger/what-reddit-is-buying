@@ -19,24 +19,24 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611130808" alt="Reddit sentiment board: Retail sentiment turns cautious amidst rising market swings" width="100%">
+<img src="assets/board.svg?v=202611132036" alt="Reddit sentiment board: Retail traders split between catching knives and taking profits" width="100%">
 
-<sub>Updated Friday, 13 Nov 2026 · 08:08 UTC</sub>
+<sub>Updated Friday, 13 Nov 2026 · 20:36 UTC</sub>
 
-> **Dow Jones** 🔴 ▼ 0.36% · **S\&P 500** 🔴 ▼ 0.35% · **Nasdaq** 🔴 ▼ 0.39% · **Russell** 🔴 ▼ 1.66% · **VIX** 🟢 ▲ 6.92%
+> **Dow Jones** 🔴 ▼ 0.02% · **S\&P 500** 🔴 ▼ 0.58% · **Nasdaq** 🔴 ▼ 1.06% · **Russell** 🔴 ▼ 0.34% · **VIX** 🟢 ▲ 1.34%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | · | **NVDA**<br><sub>NVIDIA</sub> | 2,460<br><sub>🟢▲ +21%</sub> | ⚪ 48% bull | 🔴 ▼ 4.3% | 🛒 Dip buy | Retail traders are divided between buying the dip and loading puts. |
-| 2 | · | **AMD**<br><sub>AMD</sub> | 564<br><sub>🟢▲ +19%</sub> | 🟢 62% bull | 🟢 ▲ 5.9% | 🚀 Momentum | Traders are rotating in as upside momentum accelerates. |
-| 3 | · | **NBIS**<br><sub>Nebius Group</sub> | 427<br><sub>🔥 +85%</sub> | – | 🔴 ▼ 16.8% | – | – |
-| 4 | · | **MSFT**<br><sub>Microsoft</sub> | 227<br><sub>🔥 +173%</sub> | – | 🟢 ▲ 0.4% | – | – |
-| 5 | · | **HR**<br><sub>Healthcare Realty</sub> | 116<br><sub>🔥 +59%</sub> | – | 🔴 ▼ 0.5% | – | – |
-| 6 | · | **MU**<br><sub>Micron Technology</sub> | 114<br><sub>🔴▼ -52%</sub> | – | 🔴 ▼ 1.6% | – | – |
-| 7 | · | **TSLA**<br><sub>Tesla</sub> | 85<br><sub>🔥 +55%</sub> | 🔴 45% bull | 🟢 ▲ 1.7% | 💬 Chatter | Retail interest is split across short and long positions. |
-| 8 | · | **DTE**<br><sub>DTE Energy</sub> | 80<br><sub>🟢▲ +8%</sub> | – | 🔴 ▼ 0.4% | – | – |
-| 9 | · | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 73<br><sub>⚪▬ 0%</sub> | 🟢 55% bull | 🟢 ▲ 1.6% | 🛒 Dip buy | Traders are holding steady without major new positioning. |
-| 10 | · | **AAPL**<br><sub>Apple</sub> | 72<br><sub>🔥 +71%</sub> | 🟢 55% bull | 🔴 ▼ 0.1% | 🛒 Dip buy | Retail accounts are maintaining steady long exposure. |
+| 1 | · | **NVDA**<br><sub>NVIDIA</sub> | 1,435<br><sub>🔴▼ -58%</sub> | 🔴 45% bull | 🔴 ▼ 2.7% | 🛒 Dip buy | Retail is aggressively trying to buy the steep dip. |
+| 2 | · | **AMD**<br><sub>AMD</sub> | 373<br><sub>🔴▼ -53%</sub> | 🟢 70% bull | 🔴 ▼ 9.4% | 🏭 Sector | Retail traders are actively rotating capital into this name. |
+| 3 | · | **MSFT**<br><sub>Microsoft</sub> | 314<br><sub>🔥 +217%</sub> | 🔴 40% bull | 🟢 ▲ 0.2% | 🏭 Sector | Retail sentiment remains cautious with light profit taking. |
+| 4 | · | **NBIS**<br><sub>Nebius Group</sub> | 196<br><sub>🔴▼ -60%</sub> | – | 🔴 ▼ 10.2% | – | – |
+| 5 | · | **MU**<br><sub>Micron Technology</sub> | 103<br><sub>⚪▬ 0%</sub> | – | 🔴 ▼ 3.3% | – | – |
+| 6 | · | **DTE**<br><sub>DTE Energy</sub> | 78<br><sub>🟢▲ +8%</sub> | – | 🟢 ▲ 0.2% | – | – |
+| 7 | · | **HR**<br><sub>Healthcare Realty</sub> | 67<br><sub>🔴▼ -52%</sub> | – | 🟢 ▲ 0.9% | – | – |
+| 8 | · | **IT**<br><sub>Gartner</sub> | 57<br><sub>🟢▲ +2%</sub> | – | 🟢 ▲ 0.8% | – | – |
+| 9 | · | **TSLA**<br><sub>Tesla</sub> | 53<br><sub>🔴▼ -9%</sub> | 🟢 60% bull | 🔴 ▼ 1.8% | 👀 Rumor | Speculative retail interest is building around fresh rumors. |
+| 10 | · | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 52<br><sub>🔴▼ -39%</sub> | 🔴 35% bull | 🔴 ▼ 1.0% | 🏭 Sector | Traders are quietly scaling back and taking profits. |
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>
