@@ -10,9 +10,8 @@ language = "English"       # language of the generated one-liners
 [sources]
 # Reddit communities to scan. Any public subreddit works, just add its name.
 subreddits = [
-  "wallstreetbets", "stocks", "investing", "ValueInvesting",
-  "StockMarket", "options", "SecurityAnalysis", "pennystocks",
-  "Daytrading", "thetagang", "dividends", "Aktien",
+  "wallstreetbets", "stocks", "investing", "ValueInvesting", "StockMarket", "options",
+  "Superstonk", "RobinHood", "smallstreetbets", "StocksAndTrading", "Daytrading", "pennystocks",
 ]
 
 # Words that signal trading activity in a post.
