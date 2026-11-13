@@ -4,11 +4,13 @@
 
 This repository is public, so it is built to be safe by construction:
 
-- **No secrets in the repo.** `SERPAPI_KEY` and `GEMINI_API_KEY` live only in GitHub Actions secrets. `.env` files are git-ignored.
-- **No input surface.** There is no website, form or backend. The only inputs to the pipeline are the two secrets and the hard-coded search queries. The workflow has no `workflow_dispatch` inputs.
-- **Untrusted data stays untrusted.** Reddit/search text is sanitised and fenced in the AI prompt, the AI answer is re-validated against a strict schema, and every value is Markdown-escaped (no links, images, HTML or @mentions) before it is written to `README.md`.
-- **Least privilege CI.** The workflow starts with `permissions: {}` and only the update job can write contents. Actions are pinned to commit SHAs.
-- **Fail closed.** If a run fails, the previous ranking stays in place.
+- **No secrets in the repo.** `SERPAPI_KEY` and `LLM_API_KEY` live only in GitHub Actions secrets. `.env` files are git-ignored, and every log line passes through a redaction filter that knows the key formats of all supported providers.
+- **No input surface.** There is no website, form or backend. The only inputs to a run are the secrets and `config.toml`, which is committed code that only people with write access can change. The workflow has no `workflow_dispatch` inputs, and pull requests from forks never receive secrets.
+- **Keys only go where they belong.** The provider's API host is fixed in code, never taken from the config, so a config change cannot redirect a key to another server. `LLM_API_KEY` is only ever sent to the provider selected in `config.toml`; the legacy `GEMINI_API_KEY` is only used with the `gemini` provider.
+- **Strict config.** `config.toml` is validated on every run (names, domains, model ids, search budget). Unknown or malformed settings stop the run before any credit is spent.
+- **Untrusted data stays untrusted.** Forum text is sanitised and fenced in the model prompt, the model answer is re-validated against a strict schema (tickers, numbers and themes are checked, not trusted), and every value is escaped before it is written to `README.md` (no links, images, HTML or @mentions) or into the generated SVG charts (no scripts, no external references).
+- **Least privilege CI.** The workflow starts with `permissions: {}` and only the update job can write contents. Actions are pinned to commit SHAs and kept current by Dependabot.
+- **Fail closed.** Everything is rendered before anything is written. If a run fails, the previous board stays in place.
 
 ## Reporting a vulnerability
 
@@ -16,6 +18,6 @@ Please open a private report via **GitHub → Security → Report a vulnerabilit
 
 ## If a key ever leaks
 
-1. Revoke/rotate the key immediately in the SerpAPI or Google AI Studio dashboard.
+1. Revoke/rotate the key immediately in the SerpAPI or your model provider's dashboard.
 2. Update the GitHub secret with the new value.
 3. Treat the old key as burned even if you rewrite git history.

@@ -1,88 +1,100 @@
-# What Reddit Is Buying
+<p align="center">
+  <img src="assets/banner.svg" alt="What Reddit Is Buying" width="100%">
+</p>
 
-Every US trading day, a GitHub Action reads what Reddit is buying, selling and arguing about and rewrites the ranking below. No website, no server, nothing to click. This page is the product.
+<p align="center">
+  <b>The stocks retail is piling into, ranked every trading day.</b><br>
+  Mood-scored · Rank moves · Fresh before the US open
+</p>
+
+<p align="center">
+  <a href="https://github.com/bernhardbrugger/what-reddit-is-buying/actions/workflows/daily_update.yml"><img alt="Daily update" src="https://github.com/bernhardbrugger/what-reddit-is-buying/actions/workflows/daily_update.yml/badge.svg"></a>
+  <img alt="Updates every trading day" src="https://img.shields.io/badge/updates-every%20trading%20day-ffb000">
+  <img alt="Bring your own model" src="https://img.shields.io/badge/models-Gemini%20%C2%B7%20Claude%20%C2%B7%20OpenAI%20%C2%B7%20more-00d26a">
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-8794a0"></a>
+</p>
+
+---
+
+## Today's board
 
 <!-- RANKING:START -->
-**Updated:** Thursday, 12 Nov 2026 · 14:57 UTC
-
-### Jensen Huang Resignation Rattles Tech as Retail Catches Falling Knives
-
-🟩🟩🟩🟩🟩🟩🟩🟩🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
-
-🟩 **Bullish 42%** · ⬜ Neutral 0% · 🟥 **Bearish 58%**
-
-> **Dow Jones** 🟢 ▲ 0.11% · **S\&P 500** 🔴 ▼ 0.23% · **Nasdaq** 🔴 ▼ 0.41% · **Russell** 🔴 ▼ 0.72% · **VIX** 🟢 ▲ 5.26%
-
-| # | Ticker | Company | Mentions 24h | Reddit mood | Price |
-|--:|:--|:--|--:|:--|--:|
-| 1 | **NVDA** | Nvidia Corporation | 2,450 | 🔴 Bearish 38% | – |
-| 2 | **LUNR** | Intuitive Machines, Inc. | 180 | 🟢 Bullish 65% | – |
-| 3 | **MSTR** | MicroStrategy Incorporated | 140 | 🟢 Bullish 60% | – |
-| 4 | **AMAT** | Applied Materials, Inc. | 95 | 🟢 Bullish 58% | – |
-| 5 | **SMCI** | Super Micro Computer, Inc. | 85 | 🔴 Bearish 30% | – |
-| 6 | **ONDS** | Ondas Holdings Inc. | 55 | ⚪ Neutral 50% | – |
-| 7 | **TSHA** | Taysha Gene Therapies, Inc. | 40 | ⚪ Neutral 52% | – |
-| 8 | **OTCM** | OTC Markets Group Inc. | 30 | ⚪ Neutral 50% | – |
-
-#### Desk notes
-
-- **NVDA** (r/wallstreetbets): Traders are scrambling as CEO Jensen Huang's sudden resignation triggers heavy selling alongside aggressive dip-buying.
-- **LUNR** (r/IntuitiveMachines): Retail interest builds around the space exploration company following its Q3 earnings release.
-- **MSTR** (r/MSTR): Daily discussion threads remain active as Bitcoin proxies continue drawing steady retail capital.
-- **AMAT** (r/stocks): Retail portfolios are targeting semiconductor equipment makers as potential lower-risk plays amid tech volatility.
-- **SMCI** (r/wallstreetbets): The stock is caught in a broader pre-market semiconductor selloff following Nvidia's executive turmoil.
-- **ONDS** (r/stocks): Q3 earnings report triggers fresh chatter around the wireless network provider's operational outlook.
-- **TSHA** (r/stocks): Q3 earnings announcement draws speculative biotech traders looking for clinical milestone updates.
-- **OTCM** (r/stocks): Quarterly earnings release prompts quiet interest in the financial market operator's platform volumes.
+_The board appears here with the next daily run._
 <!-- RANKING:END -->
-
-<sub>Not investment advice. This is an automated summary of public discussion, written by an AI model from search results. Mention counts and sentiment are estimates and can be wrong. Do your own research.</sub>
 
 ---
 
 ## How it works
 
-`.github/workflows/daily_update.yml` runs Monday to Friday at 13:30 UTC (one hour before the US open in winter, at the open in summer) and:
+```mermaid
+flowchart LR
+    A([⏰ Every trading day<br/>13:30 UTC]) --> B[🔎 Scan the forums<br/>your communities]
+    B --> C[🧠 Score the mood<br/>any model you choose]
+    C --> D[🛡️ Validate and sanitize]
+    D --> E[📊 Board and trend charts]
+    E --> F[(📜 Git history<br/>is the archive)]
+    classDef n fill:#0f1418,stroke:#ffb000,color:#ffffff;
+    class A,B,C,D,E,F n;
+```
 
-1. pulls Reddit chatter and market levels through **SerpAPI** (exactly 4 searches),
-2. has **Google Gemini** turn it into a structured ranking,
-3. validates every field, rewrites the section between the `RANKING` markers in this file and commits it.
+Mentions, mood and rank moves update on their own. Every board is a commit, so the whole history of the radar lives in this repo.
 
-The commit history of `README.md` is the archive of past rankings.
+## Make it yours
 
-## Setup
+Everything is controlled from one file, [`config.toml`](config.toml):
 
-1. Add two repository secrets (*Settings → Secrets and variables → Actions*). The value is prompted for, so it never ends up in your shell history:
+```toml
+[sources]
+subreddits = ["wallstreetbets", "stocks", "investing", "options", "thetagang"]  # any public subreddit
+extra_sites = ["stocktwits.com"]                                                # any forum site
+
+[llm]
+provider = "anthropic"          # gemini · anthropic · openai · openrouter · groq · mistral · deepseek · xai
+model = "claude-sonnet-5-5"
+```
+
+| Setting | What it does |
+| --- | --- |
+| `sources.subreddits` | Communities on the radar. Add or remove any public subreddit |
+| `sources.extra_sites` | Extra forum sites, one search each |
+| `sources.keywords` | Words that signal trading activity |
+| `sources.per_query` | Communities per search. Fewer means deeper results and more credits |
+| `radar.top_n` | Tickers on the board (5 to 15) |
+| `radar.language` | Language of the one-liners |
+| `llm.provider`, `llm.model` | Which model scores the mood. Add `llm.fallback_model` for a backup |
+
+The config is validated on every run. If it would need more searches than `sources.max_searches`, the run stops before it spends a single credit.
+
+## Launch your own
+
+1. Create a repo from this code and enable Actions.
+2. Add two repository secrets: `SERPAPI_KEY` ([get one](https://serpapi.com/manage-api-key)) and `LLM_API_KEY` (the key of the provider you picked in `config.toml`).
    ```bash
    gh secret set SERPAPI_KEY
-   gh secret set GEMINI_API_KEY
+   gh secret set LLM_API_KEY
    ```
-   Keys: [SerpAPI](https://serpapi.com/manage-api-key) · [Google AI Studio](https://aistudio.google.com/apikey)
-2. Start the first run: *Actions → Daily Reddit Stock Radar → Run workflow*. After that it runs by itself.
+   For the default `gemini` provider, a secret named `GEMINI_API_KEY` works too.
+3. Run **Actions → Daily Reddit Stock Radar → Run workflow** once. From then on it runs itself, Monday to Friday.
 
-## Safe for a public repo
+Searches per run: `ceil(communities / per_query)` plus extra sites, daily threads and market data. The default setup uses 4 SerpAPI credits per run.
 
-- Keys exist only as GitHub secrets, inside the job, masked in logs. `.env` is git-ignored.
-- Nobody can feed anything in: only the schedule (and collaborators with write access) can start a run, and the workflow has no inputs. Pull requests from forks never get the secrets.
-- Reddit text is treated as untrusted: cleaned, fenced in the AI prompt, validated against a strict schema and Markdown-escaped before it is written here.
-- Workflows start with no permissions, actions are pinned to commit SHAs, and a failed run leaves the previous ranking untouched.
+## Built to be public
 
-See [SECURITY.md](SECURITY.md).
+Keys live only in GitHub secrets and are masked everywhere. Nobody can feed anything in: the workflow has no inputs, forks never get the secrets, and everything scraped from the web is cleaned, validated and escaped before it is published. Details in [SECURITY.md](SECURITY.md).
 
-## Local run and tests
+<details>
+<summary>Run it locally</summary>
 
 ```bash
 pip install -r scraper/requirements-dev.txt
 python -m pytest scraper/tests          # offline, no keys needed
 cp .env.example .env                    # add your own keys, never commit this file
-python scraper/fetch_sentiment.py       # rewrites the ranking in README.md
+python scraper/fetch_sentiment.py       # rewrites the board, charts and history
 ```
 
-## Notes
+</details>
 
-- 4 SerpAPI credits per run: at most 92 per month with 23 weekdays, plus manual runs.
-- `gemini-2.5-flash` is deprecated (shutdown December 1, 2026), so the script uses `gemini-3.6-flash` with a fallback to `gemini-3.5-flash-lite` (`GEMINI_MODELS` in `fetch_sentiment.py`).
-- Google Finance no longer offers a "most active" list through SerpAPI, so the market line shows index levels.
+<sub>Not financial advice. Rankings are automated estimates of public chatter and can be wrong.</sub>
 
 ## License
 

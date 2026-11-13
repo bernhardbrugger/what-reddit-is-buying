@@ -1,4 +1,6 @@
 serpapi==1.2.0
 google-genai==3.2.0
+anthropic==2.8.0
+openai==3.50.0
 pydantic==2.14.3
 python-dotenv==1.2.4

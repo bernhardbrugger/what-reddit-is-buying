@@ -41,11 +41,12 @@ jobs:
       - name: Install dependencies
         run: pip install --no-cache-dir -r scraper/requirements.txt
 
-      - name: Generate daily sentiment report
+      - name: Update the board
         # The keys exist only in this step's environment and are masked in logs.
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # legacy name, only used with provider "gemini"
         run: python scraper/fetch_sentiment.py
 
       - name: Commit updated ranking
@@ -54,11 +55,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add README.md assets data
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore: update daily Reddit stock sentiment"
+            git commit -m "chore: update daily board"
             git pull --rebase origin "$BRANCH"
             git push origin "HEAD:$BRANCH"
           fi

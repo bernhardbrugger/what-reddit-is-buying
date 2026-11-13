@@ -1,0 +1,39 @@
+# What Reddit Is Buying - radar settings.
+#
+# This file is committed code: only people with write access to the repository can
+# change it, and it is validated strictly on every run. There is no runtime input.
+
+[radar]
+top_n = 10                 # tickers on the board (5-15)
+language = "English"       # language of the generated one-liners
+
+[sources]
+# Reddit communities to scan. Any public subreddit works, just add its name.
+subreddits = [
+  "wallstreetbets", "stocks", "investing", "ValueInvesting",
+  "StockMarket", "options", "SecurityAnalysis", "pennystocks",
+  "Daytrading", "thetagang", "dividends", "Aktien",
+]
+
+# Words that signal trading activity in a post.
+keywords = ["buying", "bought", "calls", "puts", "YOLO", "portfolio"]
+
+# Communities per search request. Fewer = deeper results per community, more credits.
+per_query = 6
+
+# Extra forum sites to scan, one search each (e.g. "stocktwits.com").
+extra_sites = []
+
+daily_threads = true       # include the big daily discussion threads
+market_data = true         # include index levels for the market line
+
+# Hard cap on SerpAPI searches per run (= credits per run). The run refuses to
+# start if this config would need more.
+max_searches = 6
+
+[llm]
+# provider: gemini | anthropic | openai | openrouter | groq | mistral | deepseek | xai
+provider = "gemini"
+model = "gemini-3.6-flash"
+# Optional second model of the same provider, tried if the first one fails.
+fallback_model = "gemini-3.5-flash-lite"
