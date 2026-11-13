@@ -2,39 +2,63 @@
  "entries": [
   {
    "date": "2026-11-13",
-   "bullish_pct": 48,
-   "bearish_pct": 42,
-   "headline": "Retail Traders Debate NVIDIA Dip as Tech Volatility Spikes",
+   "bullish_pct": 38,
+   "bearish_pct": 62,
+   "headline": "Retail Bears Feast on Tech Turmoil as Nvidia Shockwaves Ripple",
    "top": [
     {
      "ticker": "NVDA",
      "rank": 1,
-     "mentions": 2450,
-     "bullish_pct": 48
-    },
-    {
-     "ticker": "TSLA",
-     "rank": 2,
-     "mentions": 320,
-     "bullish_pct": 50
+     "mentions": 450,
+     "bullish_pct": 35
     },
     {
      "ticker": "RKLB",
-     "rank": 3,
+     "rank": 2,
      "mentions": 198,
      "bullish_pct": 75
     },
     {
      "ticker": "MSTR",
-     "rank": 4,
-     "mentions": 145,
+     "rank": 3,
+     "mentions": 23,
      "bullish_pct": 65
     },
     {
-     "ticker": "VRT",
-     "rank": 5,
-     "mentions": 85,
+     "ticker": "GME",
+     "rank": 4,
+     "mentions": 12,
      "bullish_pct": 60
+    },
+    {
+     "ticker": "PARA",
+     "rank": 5,
+     "mentions": 8,
+     "bullish_pct": 70
+    },
+    {
+     "ticker": "TSLA",
+     "rank": 6,
+     "mentions": 5,
+     "bullish_pct": 45
+    },
+    {
+     "ticker": "VRT",
+     "rank": 7,
+     "mentions": 3,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "INTC",
+     "rank": 8,
+     "mentions": 2,
+     "bullish_pct": 40
+    },
+    {
+     "ticker": "EBAY",
+     "rank": 9,
+     "mentions": 2,
+     "bullish_pct": 50
     }
    ]
   }

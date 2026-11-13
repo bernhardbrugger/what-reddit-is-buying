@@ -19,21 +19,25 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611130635" alt="Reddit sentiment board: Retail Traders Debate NVIDIA Dip as Tech Volatility Spikes" width="100%">
+<img src="assets/board.svg?v=202611130705" alt="Reddit sentiment board: Retail Bears Feast on Tech Turmoil as Nvidia Shockwaves Ripple" width="100%">
 
-<sub>Updated Friday, 13 Nov 2026 · 06:35 UTC</sub>
+<sub>Updated Friday, 13 Nov 2026 · 07:05 UTC</sub>
 
 > **Dow Jones** 🔴 ▼ 0.36% · **S\&P 500** 🔴 ▼ 0.35% · **Nasdaq** 🔴 ▼ 0.39% · **Russell** 🔴 ▼ 1.66% · **VIX** 🟢 ▲ 6.92%
 
 | # | Move | Ticker | Mentions | Mood | Day | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | · | **NVDA**<br><sub>NVIDIA Corporation</sub> | 2,450 | ⚪ 48% bull | – | 🛒 Dip buy | Retail split on catching the falling knife after sharp governance selloff. |
-| 2 | · | **TSLA**<br><sub>Tesla, Inc.</sub> | 320 | ⚪ 50% bull | – | 🚀 Momentum | Traders chasing volatility across short-dated puts and calls. |
-| 3 | · | **RKLB**<br><sub>Rocket Lab USA, Inc.</sub> | 198 | 🟢 75% bull | – | 🚀 Momentum | Community discussion remains active as retail holds core positions. |
-| 4 | · | **MSTR**<br><sub>MicroStrategy Incorporated</sub> | 145 | 🟢 65% bull | – | 🚀 Momentum | Retail interest stays elevated as crypto proxy traders hold line. |
-| 5 | · | **VRT**<br><sub>Vertiv Holdings Co.</sub> | 85 | 🟢 60% bull | – | 🚀 Momentum | After-hours ticker buzz drawing eye of retail momentum seekers. |
+| 1 | · | **NVDA**<br><sub>NVIDIA Corporation</sub> | 450 | 🔴 35% bull | – | 👀 Rumor | Retail is heavily divided as dip buyers fight fresh executive scandal panic. |
+| 2 | · | **RKLB**<br><sub>Rocket Lab USA, Inc.</sub> | 198 | 🟢 75% bull | – | 🚀 Momentum | Retail bulls stack long positions in the dedicated daily forum. |
+| 3 | · | **MSTR**<br><sub>MicroStrategy Incorporated</sub> | 23 | 🟢 65% bull | – | 🚀 Momentum | Dedicated holders maintain steady bullish positioning despite market noise. |
+| 4 | · | **GME**<br><sub>GameStop Corp.</sub> | 12 | 🟢 60% bull | – | 👀 Rumor | Retail stays engaged as AI narrative speculative interest resurfaces. |
+| 5 | · | **PARA**<br><sub>Paramount Global</sub> | 8 | 🟢 70% bull | – | 🔥 Squeeze | Speculators snap up cheap share blocks hunting a sharp rebound. |
+| 6 | · | **TSLA**<br><sub>Tesla, Inc.</sub> | 5 | 🔴 45% bull | – | 💬 Chatter | Options gamblers flip contracts rapidly across shifting volatility. |
+| 7 | · | **VRT**<br><sub>Vertiv Holdings Co.</sub> | 3 | ⚪ 50% bull | – | 🏭 Sector | After-hours interest builds as retail tracks broader AI infrastructure. |
+| 8 | · | **INTC**<br><sub>Intel Corporation</sub> | 2 | 🔴 40% bull | – | 🌐 Macro | Retail monitors government involvement while remaining mostly hesitant. |
+| 9 | · | **EBAY**<br><sub>eBay Inc.</sub> | 2 | ⚪ 50% bull | – | 💬 Chatter | Peripheral retail chatter touches on speculative acquisition ideas. |
 
-<sub>Watching 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/SecurityAnalysis · r/pennystocks · r/Daytrading · r/thetagang · r/dividends · r/Aktien</sub>
+<sub>Watching 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>
 <!-- RANKING:END -->
 
 ---
