@@ -64,7 +64,7 @@ def build_searches(cfg: Config, tickers: list[str] | None = None) -> list[dict[s
         )
 
     # Two-letter tickers (HR, MU) would match ordinary words, so they are left out of the query.
-    pulse = [t for t in (tickers or []) if len(t) >= 3][:8]
+    pulse = [t for t in (tickers or []) if len(t) >= 3][:5]
     if src.ticker_pulse and pulse:
         names = " OR ".join(f'"{t}"' for t in pulse)
         searches.append(
@@ -73,7 +73,7 @@ def build_searches(cfg: Config, tickers: list[str] | None = None) -> list[dict[s
                 "kind": "forum",
                 "params": {
                     "engine": "google_forums",
-                    "q": f"site:reddit.com ({names}) {_keyword_clause(src.keywords[:4])}",
+                    "q": f"site:reddit.com ({names})",  # kept short: long OR-queries come back empty
                     "period_unit": "d",
                     "period_value": 1,
                     "hl": "en",

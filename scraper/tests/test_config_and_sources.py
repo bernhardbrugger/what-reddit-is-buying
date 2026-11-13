@@ -110,10 +110,10 @@ def test_ticker_pulse_targets_the_measured_tickers():
     assert pulse["params"]["period_unit"] == "d" and query.startswith("site:reddit.com (")
     for symbol in ("NVDA", "AMD", "NBIS", "MSFT", "TSLA"):
         assert f'"{symbol}"' in query
-    for noisy in ('"HR"', '"MU"'):  # two-letter tickers match ordinary words
-        assert noisy not in query
-    assert query.count('"') // 2 == 8 + 4  # exactly 8 tickers + 4 keywords, never more
-    assert len(query.split()) <= 30  # stays inside Google's query-length limit
+    for left_out in ('"HR"', '"MU"', '"DTE"'):  # two-letter tickers match ordinary words; only the top 5 are used
+        assert left_out not in query
+    assert query.count('"') // 2 == 5  # exactly 5 tickers, no keyword clause: short queries are the ones that return results
+    assert len(query.split()) <= 12
 
 
 def test_optional_searches_can_be_switched_off():
