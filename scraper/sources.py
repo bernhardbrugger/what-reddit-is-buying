@@ -171,18 +171,49 @@ def extract_market(response: dict[str, Any]) -> tuple[str, list[IndexQuote]]:
     return "\n".join(lines), quotes
 
 
+WIDE_DAYS = 3
+
+
+def _diagnose(response: dict[str, Any]) -> str:
+    """Why was a search empty? Only harmless metadata, never the request."""
+    info = response.get("search_information")
+    state = info.get("organic_results_state") if isinstance(info, dict) else None
+    return f"state={state!r} error={clean_text(response.get('error'), 80)!r} keys={sorted(response)[:8]}"
+
+
+def _widened(params: dict[str, Any]) -> dict[str, Any] | None:
+    """The same search over a longer window, for when Google comes back empty for the last 24h."""
+    if params.get("engine") == "google_forums" and params.get("period_value") == 1:
+        return {**params, "period_value": WIDE_DAYS}
+    if params.get("engine") == "google" and params.get("tbs") == "qdr:d":
+        return {**params, "tbs": "qdr:w"}
+    return None
+
+
 def fetch_serpapi_data(api_key: str, cfg: Config, tickers: list[str] | None = None) -> tuple[str, list[IndexQuote]]:
     client = serpapi.Client(api_key=api_key, timeout=45)
     blocks: list[str] = []
     indexes: list[IndexQuote] = []
     forum_hits = 0
+    calls = 0  # every billed search counts, retries included, and never exceeds sources.max_searches
 
-    for search in build_searches(cfg, tickers):
+    searches = build_searches(cfg, tickers)
+    for index, search in enumerate(searches):
         label = search["label"]
         try:
             response = _search_with_retry(client, search["params"])
+            calls += 1
             if search["kind"] == "forum":
                 block, hits = format_forum_block(label, response)
+                if hits == 0:
+                    log(f"[serpapi] {label}: 0 usable results ({_diagnose(response)})")
+                    widened = _widened(search["params"])
+                    still_planned = len(searches) - index - 1  # searches that must keep their place in the budget
+                    if widened is not None and calls + still_planned < cfg.sources.max_searches:
+                        log(f"[serpapi] {label}: retrying with a wider time window")
+                        response = _search_with_retry(client, widened)
+                        calls += 1
+                        block, hits = format_forum_block(label, response)
                 forum_hits += hits
                 log(f"[serpapi] {label}: {hits} usable results")
             else:
@@ -193,6 +224,7 @@ def fetch_serpapi_data(api_key: str, cfg: Config, tickers: list[str] | None = No
             log(f"[serpapi] {label}: FAILED ({describe_error(exc)})")
             blocks.append(f"=== {label} === (no data available)")
 
+    log(f"[serpapi] {calls} searches used")
     if forum_hits == 0:
         raise RuntimeError("No forum results came back from SerpAPI; refusing to generate a report.")
     return "\n".join(blocks), indexes

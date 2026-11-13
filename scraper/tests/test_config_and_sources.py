@@ -149,13 +149,36 @@ def forum_response():
     return {"organic_results": [{"title": "Daily Discussion", "snippet": "1 NVDA 4.2k", "link": "https://www.reddit.com/r/wsb/1"}]}
 
 
-def test_exactly_planned_searches_and_partial_failure_is_tolerated(monkeypatch):
+def test_partial_failure_is_tolerated_and_empty_search_is_retried_wider(monkeypatch):
     client, (raw, _) = run_fetch(
         monkeypatch,
-        [forum_response(), RuntimeError("boom api_key=abcdef0123456789abcdef0123456789abcdef01"), {}, {"markets": {}}],
+        [
+            forum_response(),
+            RuntimeError("boom api_key=abcdef0123456789abcdef0123456789abcdef01"),
+            {"search_information": {"organic_results_state": "Fully empty"}},  # ticker pulse, empty
+            forum_response(),                                                    # its wider retry
+            {"markets": {}},
+        ],
     )
-    assert len(client.calls) == 4
+    assert len(client.calls) == 5
+    pulse, retry = client.calls[2], client.calls[3]
+    assert pulse["q"] == retry["q"] and pulse["period_value"] == 1 and retry["period_value"] == sources.WIDE_DAYS
     assert "abcdef0123456789" not in raw and "no data available" in raw
+
+
+def test_retries_never_exceed_the_search_budget(monkeypatch):
+    cfg = cfgmod.load_config(REPO / "config.toml")
+    cfg.sources.max_searches = 4  # exactly the planned searches: no room for retries
+    client = FakeClient([{}, {}, {}, {"markets": {}}, forum_response()])
+    monkeypatch.setattr(sources.serpapi, "Client", lambda **_: client)
+    with pytest.raises(RuntimeError):  # nothing usable came back
+        sources.fetch_serpapi_data("dummy-key", cfg, TICKERS)
+    assert len(client.calls) == 4
+
+
+def test_non_empty_searches_are_not_retried(monkeypatch):
+    client, _ = run_fetch(monkeypatch, [forum_response(), forum_response(), forum_response(), {"markets": {}}])
+    assert len(client.calls) == 4
 
 
 def test_no_forum_data_aborts(monkeypatch):
