@@ -1,0 +1,42 @@
+{
+ "entries": [
+  {
+   "date": "2026-11-13",
+   "bullish_pct": 48,
+   "bearish_pct": 42,
+   "headline": "Retail Traders Debate NVIDIA Dip as Tech Volatility Spikes",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 2450,
+     "bullish_pct": 48
+    },
+    {
+     "ticker": "TSLA",
+     "rank": 2,
+     "mentions": 320,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "RKLB",
+     "rank": 3,
+     "mentions": 198,
+     "bullish_pct": 75
+    },
+    {
+     "ticker": "MSTR",
+     "rank": 4,
+     "mentions": 145,
+     "bullish_pct": 65
+    },
+    {
+     "ticker": "VRT",
+     "rank": 5,
+     "mentions": 85,
+     "bullish_pct": 60
+    }
+   ]
+  }
+ ]
+}

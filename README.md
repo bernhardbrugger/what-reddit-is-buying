@@ -19,7 +19,21 @@
 ## Today's board
 
 <!-- RANKING:START -->
-_The board appears here with the next daily run._
+<img src="assets/board.svg?v=202611130635" alt="Reddit sentiment board: Retail Traders Debate NVIDIA Dip as Tech Volatility Spikes" width="100%">
+
+<sub>Updated Friday, 13 Nov 2026 · 06:35 UTC</sub>
+
+> **Dow Jones** 🔴 ▼ 0.36% · **S\&P 500** 🔴 ▼ 0.35% · **Nasdaq** 🔴 ▼ 0.39% · **Russell** 🔴 ▼ 1.66% · **VIX** 🟢 ▲ 6.92%
+
+| # | Move | Ticker | Mentions | Mood | Day | Theme | Signal |
+|--:|:-:|:--|--:|:--|--:|:--|:--|
+| 1 | · | **NVDA**<br><sub>NVIDIA Corporation</sub> | 2,450 | ⚪ 48% bull | – | 🛒 Dip buy | Retail split on catching the falling knife after sharp governance selloff. |
+| 2 | · | **TSLA**<br><sub>Tesla, Inc.</sub> | 320 | ⚪ 50% bull | – | 🚀 Momentum | Traders chasing volatility across short-dated puts and calls. |
+| 3 | · | **RKLB**<br><sub>Rocket Lab USA, Inc.</sub> | 198 | 🟢 75% bull | – | 🚀 Momentum | Community discussion remains active as retail holds core positions. |
+| 4 | · | **MSTR**<br><sub>MicroStrategy Incorporated</sub> | 145 | 🟢 65% bull | – | 🚀 Momentum | Retail interest stays elevated as crypto proxy traders hold line. |
+| 5 | · | **VRT**<br><sub>Vertiv Holdings Co.</sub> | 85 | 🟢 60% bull | – | 🚀 Momentum | After-hours ticker buzz drawing eye of retail momentum seekers. |
+
+<sub>Watching 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/SecurityAnalysis · r/pennystocks · r/Daytrading · r/thetagang · r/dividends · r/Aktien</sub>
 <!-- RANKING:END -->
 
 ---
