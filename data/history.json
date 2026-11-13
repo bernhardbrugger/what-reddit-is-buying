@@ -2,15 +2,15 @@
  "entries": [
   {
    "date": "2026-11-13",
-   "bullish_pct": 42,
-   "bearish_pct": 58,
-   "headline": "Retail sentiment sours as put buying ramps up across high beta names",
+   "bullish_pct": 38,
+   "bearish_pct": 62,
+   "headline": "Retail traders brace for volatility while buying tech dips",
    "top": [
     {
      "ticker": "NVDA",
      "rank": 1,
-     "mentions": 2479,
-     "bullish_pct": 45
+     "mentions": 2475,
+     "bullish_pct": 42
     },
     {
      "ticker": "AMD",
@@ -21,13 +21,13 @@
     {
      "ticker": "NBIS",
      "rank": 3,
-     "mentions": 426,
+     "mentions": 428,
      "bullish_pct": 50
     },
     {
      "ticker": "MSFT",
      "rank": 4,
-     "mentions": 224,
+     "mentions": 225,
      "bullish_pct": 50
     },
     {
