@@ -2,20 +2,20 @@
  "entries": [
   {
    "date": "2026-11-13",
-   "bullish_pct": 38,
-   "bearish_pct": 62,
-   "headline": "Retail traders brace for volatility while buying tech dips",
+   "bullish_pct": 42,
+   "bearish_pct": 58,
+   "headline": "Retail traders buy the tech dip despite growing market anxiety",
    "top": [
     {
      "ticker": "NVDA",
      "rank": 1,
-     "mentions": 2475,
-     "bullish_pct": 42
+     "mentions": 2472,
+     "bullish_pct": 45
     },
     {
      "ticker": "AMD",
      "rank": 2,
-     "mentions": 574,
+     "mentions": 572,
      "bullish_pct": 50
     },
     {
@@ -46,7 +46,7 @@
      "ticker": "TSLA",
      "rank": 7,
      "mentions": 85,
-     "bullish_pct": 50
+     "bullish_pct": 48
     },
     {
      "ticker": "DTE",
@@ -63,7 +63,7 @@
     {
      "ticker": "AAPL",
      "rank": 10,
-     "mentions": 73,
+     "mentions": 72,
      "bullish_pct": 50
     }
    ]

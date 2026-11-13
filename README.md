@@ -19,24 +19,24 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611130754" alt="Reddit sentiment board: Retail traders brace for volatility while buying tech dips" width="100%">
+<img src="assets/board.svg?v=202611130758" alt="Reddit sentiment board: Retail traders buy the tech dip despite growing market anxiety" width="100%">
 
-<sub>Updated Friday, 13 Nov 2026 · 07:54 UTC</sub>
+<sub>Updated Friday, 13 Nov 2026 · 07:58 UTC</sub>
 
 > **Dow Jones** 🔴 ▼ 0.36% · **S\&P 500** 🔴 ▼ 0.35% · **Nasdaq** 🔴 ▼ 0.39% · **Russell** 🔴 ▼ 1.66% · **VIX** 🟢 ▲ 6.92%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | · | **NVDA**<br><sub>NVIDIA</sub> | 2,475<br><sub>🟢▲ +22%</sub> | 🔴 42% bull | 🔴 ▼ 4.3% | 👀 Rumor | Traders split between loading calls on dips and buying puts |
-| 2 | · | **AMD**<br><sub>AMD</sub> | 574<br><sub>🟢▲ +22%</sub> | – | 🟢 ▲ 5.9% | – | – |
+| 1 | · | **NVDA**<br><sub>NVIDIA</sub> | 2,472<br><sub>🟢▲ +22%</sub> | 🔴 45% bull | 🔴 ▼ 4.3% | 🛒 Dip buy | Retail remains deeply divided while buying calls into heavy weakness |
+| 2 | · | **AMD**<br><sub>AMD</sub> | 572<br><sub>🟢▲ +21%</sub> | – | 🟢 ▲ 5.9% | – | – |
 | 3 | · | **NBIS**<br><sub>Nebius Group</sub> | 428<br><sub>🔥 +86%</sub> | – | 🔴 ▼ 16.8% | – | – |
 | 4 | · | **MSFT**<br><sub>Microsoft</sub> | 225<br><sub>🔥 +171%</sub> | – | 🟢 ▲ 0.4% | – | – |
 | 5 | · | **HR**<br><sub>Healthcare Realty</sub> | 116<br><sub>🔥 +59%</sub> | – | 🔴 ▼ 0.5% | – | – |
 | 6 | · | **MU**<br><sub>Micron Technology</sub> | 114<br><sub>🔴▼ -52%</sub> | – | 🔴 ▼ 1.6% | – | – |
-| 7 | · | **TSLA**<br><sub>Tesla</sub> | 85<br><sub>🔥 +55%</sub> | – | 🟢 ▲ 1.7% | – | – |
+| 7 | · | **TSLA**<br><sub>Tesla</sub> | 85<br><sub>🔥 +55%</sub> | ⚪ 48% bull | 🟢 ▲ 1.7% | 🚀 Momentum | Options activity reflects mixed feelings among retail accounts |
 | 8 | · | **DTE**<br><sub>DTE Energy</sub> | 80<br><sub>🟢▲ +8%</sub> | – | 🔴 ▼ 0.4% | – | – |
 | 9 | · | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 73<br><sub>🔴▼ -1%</sub> | – | 🟢 ▲ 1.6% | – | – |
-| 10 | · | **AAPL**<br><sub>Apple</sub> | 73<br><sub>🔥 +74%</sub> | – | 🔴 ▼ 0.1% | – | – |
+| 10 | · | **AAPL**<br><sub>Apple</sub> | 72<br><sub>🔥 +71%</sub> | – | 🔴 ▼ 0.1% | – | – |
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>
