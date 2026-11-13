@@ -88,6 +88,7 @@ model = "claude-sonnet-5-5"
 | `data.mentions` | `apewisdom` (measured) or `estimate` (model guess, marked with `~`) |
 | `data.prices` | Last-session price moves on or off |
 | `sources.extra_sites` | Extra forum sites, one search each |
+| `sources.ticker_pulse` | One targeted search on today's top tickers. The best source of mood, on by default |
 | `sources.keywords` | Words that signal trading activity |
 | `sources.per_query` | Communities per search. Fewer means deeper results and more credits |
 | `radar.top_n` | Tickers on the board (5 to 15) |

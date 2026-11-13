@@ -60,13 +60,13 @@ def main() -> int:
         return 2
 
     try:
-        log(f"Scanning {len(cfg.sources.subreddits)} communities ({planned_searches(cfg)} searches)...")
-        raw_text, indexes = fetch_serpapi_data(serp_key, cfg)
-
-        candidates = fetch_mentions(cfg)
+        candidates = fetch_mentions(cfg)  # free, so it runs first and tells the forum search what to look for
         if 0 < len(candidates) < 5:
             log("[mentions] fewer than 5 measured tickers, falling back to model estimates")
             candidates = []
+
+        log(f"Scanning {len(cfg.sources.subreddits)} communities (up to {planned_searches(cfg)} searches)...")
+        raw_text, indexes = fetch_serpapi_data(serp_key, cfg, [c.ticker for c in candidates])
 
         log(f"Scoring with {cfg.llm.provider}...")
         scored = analyze(raw_text, cfg, llm_key, candidates)

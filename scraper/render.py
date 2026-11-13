@@ -108,6 +108,7 @@ def render_block(
     ]
     for t in report.top_tickers:
         badge = {"bullish": "🟢", "bearish": "🔴", "neutral": "⚪"}[t.sentiment]
+        mood_cell = f"{badge} {t.bullish_pct}% bull" if t.signal else "–"
         price = "–"
         if t.price_change_pct:
             value = float(t.price_change_pct.rstrip("%"))
@@ -117,8 +118,8 @@ def render_block(
             f"| {t.rank} | {_move_cell(moves.get(t.ticker, ''))} "
             f"| **{t.ticker}**<br><sub>{md_escape(t.company_name)}</sub> "
             f"| {_mentions_text(t)}{('<br><sub>' + _heat(t.mentions_change_pct) + '</sub>') if t.mentions_change_pct is not None else ''} "
-            f"| {badge} {t.bullish_pct}% bull | {price} "
-            f"| {emoji} {theme} | {md_escape(t.take)} |"
+            f"| {mood_cell} | {price} "
+            f"| {(emoji + ' ' + theme) if t.signal else '–'} | {md_escape(t.take) if t.signal and t.take else '–'} |"
         )
 
     if has_trend:
@@ -205,14 +206,14 @@ def render_board_svg(report: DailyReport) -> str:
     for i, t in enumerate(report.top_tickers):
         y = top + i * row_h
         base = y + 27
-        color = SENTIMENT_COLOR[t.sentiment]
+        color = SENTIMENT_COLOR[t.sentiment] if t.signal else NEUTRAL
         bar_w = max(4.0, 360 * t.mentions / max_mentions)
         parts += [
             _t(32, base, f"{t.rank:02d}", 18, "#8a6100", weight="700"),
             _t(76, base, t.ticker, 20, "#ffffff", weight="700"),
             f'<rect x="176" y="{y + 11}" width="{bar_w:.1f}" height="16" rx="2" fill="{color}" fill-opacity="0.9"/>',
             _t(176 + bar_w + 10, base - 2, _mentions_text(t), 13, "#aab6bf"),
-            _t(715, base, f"{t.bullish_pct}% bull", 14, color, weight="700"),
+            _t(715, base, f"{t.bullish_pct}% bull" if t.signal else "no signal", 14, color, weight="700" if t.signal else "400"),
         ]
         if t.mentions_change_pct is not None:
             change = t.mentions_change_pct

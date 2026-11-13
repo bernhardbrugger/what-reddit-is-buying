@@ -191,3 +191,26 @@ def test_too_few_usable_tickers_aborts():
         pipeline.build_report(scored(), cands()[:2], {}, [], cfg(), "2026-11-13T13:30:00Z")
     with pytest.raises(RuntimeError):
         pipeline.build_report(LLMReport.model_validate(report_payload(count=4)), [], {}, [], cfg(), "2026-11-13T13:30:00Z")
+
+
+# --- no evidence -> no made-up mood --------------------------------------------------------- #
+
+def test_tickers_without_forum_evidence_are_shown_without_a_mood():
+    payload = report_payload(count=6)
+    payload["top_tickers"][1].update(bullish_pct=50, theme="other", stance="holding", take="Retail stays calm and holds steady.")
+    report = pipeline.build_report(LLMReport.model_validate(payload), cands(), {}, [], cfg(), "2026-11-13T13:30:00Z")
+    nvda, tsla = report.top_tickers[0], report.top_tickers[1]
+    assert nvda.signal is True and nvda.take
+    assert tsla.signal is False and tsla.take == ""
+    assert report.market_mood.bullish_pct > 0  # other rows still carry a real mood
+
+
+def test_no_signal_anywhere_means_a_neutral_gauge_and_house_headline():
+    payload = report_payload(count=6)
+    for t in payload["top_tickers"]:
+        t.update(bullish_pct=50, theme="other", stance="holding")
+    payload["market_mood"] = {"bullish_pct": 80, "bearish_pct": 10, "headline": "Retail is on fire today folks"}
+    report = pipeline.build_report(LLMReport.model_validate(payload), cands(), {}, [], cfg(), "2026-11-13T13:30:00Z")
+    assert all(not t.signal for t in report.top_tickers)
+    assert report.market_mood.bullish_pct == 0 and report.market_mood.bearish_pct == 0
+    assert report.market_mood.headline in voice.HEADLINES["neutral"]

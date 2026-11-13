@@ -138,7 +138,7 @@ def test_main_end_to_end_writes_board_assets_and_history(monkeypatch, tmp_path, 
     monkeypatch.setattr(fetch_sentiment, "load_dotenv", lambda *_a, **_k: None)
     monkeypatch.setenv("SERPAPI_KEY", "serp-key-value-1234")
     monkeypatch.setenv("LLM_API_KEY", "llm-key-value-12345")
-    monkeypatch.setattr(fetch_sentiment, "fetch_serpapi_data", lambda key, cfg: ("raw", report.indexes))
+    monkeypatch.setattr(fetch_sentiment, "fetch_serpapi_data", lambda key, cfg, tickers=None: ("raw", report.indexes))
     from marketdata import Candidate
     from models import LLMReport
 
@@ -177,3 +177,12 @@ def test_main_failure_leaves_everything_untouched(monkeypatch, tmp_path):
     assert fetch_sentiment.main() == 1
     assert readme.read_text(encoding="utf-8") == original
     assert not (tmp_path / "assets").exists() and not (tmp_path / "data").exists()
+
+
+def test_rows_without_signal_render_dashes_not_filler(make_report):
+    report = make_report(signal=False, take="", bullish_pct=50)
+    block = render.render_block(report, {}, ["stocks"], False)
+    row = next(line for line in block.splitlines() if line.startswith("| 1 |"))
+    cells = [c.strip() for c in row.strip("|").split("|")]
+    assert cells[4] == "–" and cells[6] == "–" and cells[7] == "–"  # mood, theme, signal
+    assert "no signal" in render.render_board_svg(report)

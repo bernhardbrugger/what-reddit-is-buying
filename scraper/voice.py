@@ -62,6 +62,10 @@ def safe_take(take: str, stance: Stance, ticker: str, seed: str) -> str:
     return _pick(PHRASES[stance], f"{seed}:{ticker}")
 
 
+def neutral_headline(seed: str) -> str:
+    return _pick(HEADLINES["neutral"], seed)
+
+
 def safe_headline(headline: str, bullish_pct: int, bearish_pct: int, tickers: set[str], seed: str) -> str:
     if is_clean_line(headline, tickers, 12, 80):
         return headline

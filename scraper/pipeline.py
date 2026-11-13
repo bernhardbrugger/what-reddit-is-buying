@@ -6,7 +6,7 @@ from config import Config
 from marketdata import Candidate
 from models import DailyReport, IndexQuote, LLMReport, TickerSentiment
 from security import log
-from voice import safe_headline, safe_take
+from voice import neutral_headline, safe_headline, safe_take
 
 MIN_ESTIMATED_TICKERS = 5
 
@@ -35,6 +35,8 @@ def build_report(
             mentions, change, name = item.mentions_estimate, None, item.company_name
             if mentions < cfg.data.min_mentions:
                 continue
+        # The model's contract: no evidence in the forum text -> 50, theme "other". Show that honestly.
+        has_signal = not (item.bullish_pct == 50 and item.theme == "other")
         rows.append(
             TickerSentiment(
                 rank=0,
@@ -43,10 +45,11 @@ def build_report(
                 mentions=mentions,
                 mentions_change_pct=change,
                 verified=measured,
+                signal=has_signal,
                 bullish_pct=item.bullish_pct,
                 price_change_pct=prices.get(item.ticker),
                 theme=item.theme,
-                take=safe_take(item.take, item.stance, item.ticker, seed),
+                take=safe_take(item.take, item.stance, item.ticker, seed) if has_signal else "",
             )
         )
 
@@ -60,7 +63,11 @@ def build_report(
         row.rank = position
 
     mood = scored.market_mood
-    mood.headline = safe_headline(mood.headline, mood.bullish_pct, mood.bearish_pct, {r.ticker for r in rows}, seed)
+    if any(r.signal for r in rows):
+        mood.headline = safe_headline(mood.headline, mood.bullish_pct, mood.bearish_pct, {r.ticker for r in rows}, seed)
+    else:  # nothing to base a mood on: say so instead of passing off the model's guess
+        mood.bullish_pct = mood.bearish_pct = 0
+        mood.headline = neutral_headline(seed)
 
     return DailyReport(
         updated_at=updated_at,

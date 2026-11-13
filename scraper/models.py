@@ -128,6 +128,7 @@ class TickerSentiment(BaseModel):
     mentions: int
     mentions_change_pct: int | None = None  # vs. 24h ago; None when there is no reliable baseline
     verified: bool = True  # False = mention count is a model estimate, not measured
+    signal: bool = True  # False = the forum text said nothing about this ticker (mood/theme/take are blank)
     bullish_pct: int
     sentiment: Literal["bullish", "bearish", "neutral"] = "neutral"
     price_change_pct: str | None = None

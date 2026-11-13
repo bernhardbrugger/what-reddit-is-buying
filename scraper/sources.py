@@ -20,8 +20,11 @@ def _keyword_clause(keywords: list[str]) -> str:
     return "(" + " OR ".join(f'"{k}"' for k in keywords) + ")"
 
 
-def build_searches(cfg: Config) -> list[dict[str, Any]]:
-    """Turn the config into the exact list of SerpAPI searches for this run."""
+def build_searches(cfg: Config, tickers: list[str] | None = None) -> list[dict[str, Any]]:
+    """Turn the config into the exact list of SerpAPI searches for this run.
+
+    `tickers` are the measured top tickers; they power the targeted "ticker pulse" search.
+    """
     src = cfg.sources
     keywords = _keyword_clause(src.keywords)
     searches: list[dict[str, Any]] = []
@@ -60,6 +63,25 @@ def build_searches(cfg: Config) -> list[dict[str, Any]]:
             }
         )
 
+    # Two-letter tickers (HR, MU) would match ordinary words, so they are left out of the query.
+    pulse = [t for t in (tickers or []) if len(t) >= 3][:8]
+    if src.ticker_pulse and pulse:
+        names = " OR ".join(f'"{t}"' for t in pulse)
+        searches.append(
+            {
+                "label": "Ticker pulse",
+                "kind": "forum",
+                "params": {
+                    "engine": "google_forums",
+                    "q": f"site:reddit.com ({names}) {_keyword_clause(src.keywords[:4])}",
+                    "period_unit": "d",
+                    "period_value": 1,
+                    "hl": "en",
+                    "gl": "us",
+                },
+            }
+        )
+
     if src.daily_threads:
         searches.append(
             {
@@ -85,7 +107,7 @@ def build_searches(cfg: Config) -> list[dict[str, Any]]:
             }
         )
 
-    assert len(searches) == planned_searches(cfg)
+    assert len(searches) <= planned_searches(cfg)  # the ticker pulse is skipped without measured tickers
     return searches
 
 
@@ -149,13 +171,13 @@ def extract_market(response: dict[str, Any]) -> tuple[str, list[IndexQuote]]:
     return "\n".join(lines), quotes
 
 
-def fetch_serpapi_data(api_key: str, cfg: Config) -> tuple[str, list[IndexQuote]]:
+def fetch_serpapi_data(api_key: str, cfg: Config, tickers: list[str] | None = None) -> tuple[str, list[IndexQuote]]:
     client = serpapi.Client(api_key=api_key, timeout=45)
     blocks: list[str] = []
     indexes: list[IndexQuote] = []
     forum_hits = 0
 
-    for search in build_searches(cfg):
+    for search in build_searches(cfg, tickers):
         label = search["label"]
         try:
             response = _search_with_retry(client, search["params"])

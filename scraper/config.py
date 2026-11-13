@@ -47,7 +47,8 @@ class Sources(_Strict):
     keywords: list[str] = Field(default=["buying", "bought", "calls", "puts", "YOLO", "portfolio"], min_length=1, max_length=10)
     per_query: int = Field(default=6, ge=1, le=8)
     extra_sites: list[str] = Field(default_factory=list, max_length=4)
-    daily_threads: bool = True
+    daily_threads: bool = False
+    ticker_pulse: bool = True
     market_data: bool = True
     max_searches: int = Field(default=6, ge=1, le=12)
 
@@ -151,6 +152,7 @@ def planned_searches(cfg: Config) -> int:
         math.ceil(len(src.subreddits) / src.per_query)
         + len(src.extra_sites)
         + int(src.daily_threads)
+        + int(src.ticker_pulse)
         + int(src.market_data)
     )
 

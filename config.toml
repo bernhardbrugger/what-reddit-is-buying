@@ -23,7 +23,8 @@ per_query = 6
 # Extra forum sites to scan, one search each (e.g. "stocktwits.com").
 extra_sites = []
 
-daily_threads = true       # include the big daily discussion threads
+ticker_pulse = true        # one extra search aimed at today's top tickers (best source of mood)
+daily_threads = false      # include the big daily discussion threads (one more search)
 market_data = true         # include index levels for the market line
 
 # Hard cap on SerpAPI searches per run (= credits per run). The run refuses to

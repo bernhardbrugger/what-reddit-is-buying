@@ -85,16 +85,35 @@ def test_model_id_and_language_validated():
 
 # --- searches ------------------------------------------------------------------- #
 
+TICKERS = ["NVDA", "AMD", "NBIS", "MSFT", "HR", "MU", "TSLA", "DTE", "GOOG", "AAPL"]
+
+
 def test_build_searches_matches_budget_and_content():
     cfg = cfgmod.load_config(REPO / "config.toml")
-    searches = sources.build_searches(cfg)
+    assert cfgmod.planned_searches(cfg) == 4
+    without = sources.build_searches(cfg)  # no measured tickers -> no ticker pulse
+    assert len(without) == 3
+    searches = sources.build_searches(cfg, TICKERS)
     assert len(searches) == cfgmod.planned_searches(cfg) == 4
-    forum_queries = [s["params"]["q"] for s in searches if s["params"]["engine"] == "google_forums"]
-    assert len(forum_queries) == 2
-    joined = " ".join(forum_queries)
+    community_queries = [s["params"]["q"] for s in searches if s["label"].startswith("Reddit communities")]
+    assert len(community_queries) == 2
+    joined = " ".join(community_queries)
     for name in cfg.sources.subreddits:
         assert f"site:reddit.com/r/{name}" in joined
     assert searches[-1]["params"] == {"engine": "google_finance_markets", "trend": "indexes"}
+
+
+def test_ticker_pulse_targets_the_measured_tickers():
+    cfg = cfgmod.load_config(REPO / "config.toml")
+    pulse = next(s for s in sources.build_searches(cfg, TICKERS) if s["label"] == "Ticker pulse")
+    query = pulse["params"]["q"]
+    assert pulse["params"]["period_unit"] == "d" and query.startswith("site:reddit.com (")
+    for symbol in ("NVDA", "AMD", "NBIS", "MSFT", "TSLA"):
+        assert f'"{symbol}"' in query
+    for noisy in ('"HR"', '"MU"'):  # two-letter tickers match ordinary words
+        assert noisy not in query
+    assert query.count('"') // 2 == 8 + 4  # exactly 8 tickers + 4 keywords, never more
+    assert len(query.split()) <= 30  # stays inside Google's query-length limit
 
 
 def test_optional_searches_can_be_switched_off():
@@ -123,7 +142,7 @@ def run_fetch(monkeypatch, responses):
     cfg = cfgmod.load_config(REPO / "config.toml")
     client = FakeClient(responses)
     monkeypatch.setattr(sources.serpapi, "Client", lambda **_: client)
-    return client, sources.fetch_serpapi_data("dummy-key", cfg)
+    return client, sources.fetch_serpapi_data("dummy-key", cfg, TICKERS)
 
 
 def forum_response():
