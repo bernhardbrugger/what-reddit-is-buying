@@ -170,3 +170,63 @@ def test_openai_compatible_adapter_falls_back_to_json_mode(monkeypatch):
     out = llm._call_openai_compatible("key-value-1234", "some-model", "SYS", "USER", LLMReport.model_json_schema(), "https://api.groq.com/openai/v1")
     assert out == '{"ok": true}'
     assert calls == [("init", "https://api.groq.com/openai/v1"), "json_schema", "json_object"]
+
+
+# --- retries ----------------------------------------------------------------------- #
+
+class FakeServerError(Exception):
+    code = 503
+
+
+def test_transient_errors_are_retried_with_backoff(monkeypatch):
+    sleeps, calls = [], []
+    monkeypatch.setattr(llm.time, "sleep", sleeps.append)
+
+    def adapter(key, model, system, user, schema, base_url):
+        calls.append(model)
+        if len(calls) < 3:
+            raise FakeServerError("503 UNAVAILABLE high demand")
+        return good_reply()
+
+    monkeypatch.setitem(llm.ADAPTERS, "gemini", adapter)
+    report = llm.analyze("raw", cfg("gemini", "m1", "m2"), "k" * 12)
+    assert calls == ["m1", "m1", "m1"] and sleeps == list(llm.RETRY_DELAYS)
+    assert len(report.top_tickers) == 8
+
+
+def test_persistent_outage_tries_fallback_model_then_gives_up(monkeypatch):
+    monkeypatch.setattr(llm.time, "sleep", lambda s: None)
+    calls = []
+
+    def adapter(key, model, system, user, schema, base_url):
+        calls.append(model)
+        raise FakeServerError("503")
+
+    monkeypatch.setitem(llm.ADAPTERS, "gemini", adapter)
+    with pytest.raises(RuntimeError):
+        llm.analyze("raw", cfg("gemini", "m1", "m2"), "k" * 12)
+    assert calls == ["m1"] * 3 + ["m2"] * 3
+
+
+def test_permanent_errors_are_not_retried(monkeypatch):
+    monkeypatch.setattr(llm.time, "sleep", lambda s: pytest.fail("must not wait for a permanent error"))
+    calls = []
+
+    class Unauthorized(Exception):
+        status_code = 401
+
+    def adapter(key, model, system, user, schema, base_url):
+        calls.append(model)
+        raise Unauthorized("invalid api key")
+
+    monkeypatch.setitem(llm.ADAPTERS, "gemini", adapter)
+    with pytest.raises(RuntimeError):
+        llm.analyze("raw", cfg("gemini", "m1", "m2"), "k" * 12)
+    assert calls == ["m1", "m2"]
+
+
+def test_invalid_output_gets_one_immediate_retry(monkeypatch):
+    monkeypatch.setattr(llm.time, "sleep", lambda s: pytest.fail("no wait for invalid output"))
+    replies = iter(["not json at all", good_reply()])
+    monkeypatch.setitem(llm.ADAPTERS, "gemini", lambda *a: next(replies))
+    assert len(llm.analyze("raw", cfg("gemini", "m1"), "k" * 12).top_tickers) == 8

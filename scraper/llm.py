@@ -6,6 +6,7 @@ import copy
 import json
 import os
 import re
+import time
 from datetime import datetime, timezone
 from typing import Any, Callable
 
@@ -14,6 +15,16 @@ from models import LLMReport
 from security import describe_error, log
 
 MAX_PROMPT_CHARS = 60_000
+
+# Seconds to wait before the 2nd and 3rd attempt on the same model when the provider
+# has a temporary problem (overload, rate limit, network). Search data is kept, so
+# retrying costs no extra SerpAPI credits.
+RETRY_DELAYS = (20, 60)
+TRANSIENT_STATUS = {408, 409, 429, 500, 502, 503, 504, 529}
+TRANSIENT_NAMES = {
+    "ServerError", "InternalServerError", "ServiceUnavailable", "RateLimitError", "APIConnectionError",
+    "APITimeoutError", "Timeout", "ConnectError", "ReadTimeout", "OverloadedError",
+}
 
 # provider -> (adapter, base_url). Base URLs are fixed on purpose: a config change can
 # never redirect an API key to an arbitrary host.
@@ -90,6 +101,15 @@ def strictify(schema: dict[str, Any]) -> dict[str, Any]:
 
     walk(out)
     return out
+
+
+def is_transient(exc: BaseException) -> bool:
+    """True for temporary provider problems (overload, rate limits, network) worth waiting out."""
+    for attr in ("status_code", "code"):
+        value = getattr(exc, attr, None)
+        if isinstance(value, int) and value in TRANSIENT_STATUS:
+            return True
+    return type(exc).__name__ in TRANSIENT_NAMES
 
 
 def extract_json(text: str) -> Any:
@@ -198,12 +218,20 @@ def analyze(raw_text: str, cfg: Config, api_key: str) -> LLMReport:
     models = [cfg.llm.model] + ([cfg.llm.fallback_model] if cfg.llm.fallback_model else [])
     last_error: BaseException | None = None
     for model in models:
-        try:
-            text = adapter(api_key, model, system, user, schema, base_url)
-            report = LLMReport.model_validate(extract_json(text)).trimmed(cfg.radar.top_n)
-            log(f"[llm] {cfg.llm.provider}/{model}: {len(report.top_tickers)} tickers validated")
-            return report
-        except Exception as exc:  # noqa: BLE001 - fall through to the next model
-            last_error = exc
-            log(f"[llm] {cfg.llm.provider}/{model}: FAILED ({describe_error(exc)})")
+        for attempt in range(len(RETRY_DELAYS) + 1):
+            try:
+                text = adapter(api_key, model, system, user, schema, base_url)
+                report = LLMReport.model_validate(extract_json(text)).trimmed(cfg.radar.top_n)
+                log(f"[llm] {cfg.llm.provider}/{model}: {len(report.top_tickers)} tickers validated")
+                return report
+            except Exception as exc:  # noqa: BLE001 - retry, then fall through to the next model
+                last_error = exc
+                transient = is_transient(exc)
+                invalid_output = isinstance(exc, ValueError)  # bad JSON or schema violation
+                can_retry = attempt < len(RETRY_DELAYS) and (transient or (invalid_output and attempt == 0))
+                log(f"[llm] {cfg.llm.provider}/{model}: FAILED ({describe_error(exc)})" + (" - retrying" if can_retry else ""))
+                if not can_retry:
+                    break
+                if transient:
+                    time.sleep(RETRY_DELAYS[attempt])
     raise RuntimeError(f"All configured models failed. Last error: {describe_error(last_error)}")
