@@ -67,6 +67,74 @@
      "bullish_pct": 35
     }
    ]
+  },
+  {
+   "date": "2026-11-16",
+   "bullish_pct": 0,
+   "bearish_pct": 0,
+   "headline": "No clear retail leader today",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 1200,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "MU",
+     "rank": 2,
+     "mentions": 114,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "AMD",
+     "rank": 3,
+     "mentions": 102,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "NBIS",
+     "rank": 4,
+     "mentions": 99,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "GOOGL",
+     "rank": 5,
+     "mentions": 89,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "ASTS",
+     "rank": 6,
+     "mentions": 78,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "GOOG",
+     "rank": 7,
+     "mentions": 67,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SPCX",
+     "rank": 8,
+     "mentions": 67,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SNDK",
+     "rank": 9,
+     "mentions": 64,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "AAPL",
+     "rank": 10,
+     "mentions": 53,
+     "bullish_pct": 50
+    }
+   ]
   }
  ]
 }
