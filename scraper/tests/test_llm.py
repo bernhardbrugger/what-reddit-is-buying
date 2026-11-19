@@ -246,3 +246,28 @@ def test_invalid_output_gets_one_immediate_retry(monkeypatch):
     replies = iter(["not json at all", good_reply()])
     monkeypatch.setitem(llm.ADAPTERS, "gemini", lambda *a: next(replies))
     assert len(llm.analyze("raw", cfg("gemini", "m1"), "k" * 12).top_tickers) == 8
+
+
+def test_gemini_adapter_sets_a_request_timeout(monkeypatch):
+    # A Gemini call without a timeout hung until the 10-minute workflow limit
+    # killed the job, so neither the retries nor the fallback model ever ran.
+    from google import genai
+
+    captured = {}
+
+    class FakeModels:
+        def generate_content(self, **kwargs):
+            captured.update(kwargs)
+            return types.SimpleNamespace(text='{"ok": true}')
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            captured["client_kwargs"] = kwargs
+            self.models = FakeModels()
+
+    monkeypatch.setattr(genai, "Client", FakeClient)
+    out = llm._call_gemini("key-value-1234", "gemini-x", "SYS", "USER", LLMReport.model_json_schema(), None)
+    assert out == '{"ok": true}'
+    assert captured["model"] == "gemini-x"
+    http_options = captured["client_kwargs"]["http_options"]
+    assert http_options.timeout == llm.REQUEST_TIMEOUT_SECONDS * 1000  # the SDK counts milliseconds

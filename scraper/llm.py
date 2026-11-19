@@ -21,6 +21,10 @@ MAX_PROMPT_CHARS = 60_000
 # has a temporary problem (overload, rate limit, network). Search data is kept, so
 # retrying costs no extra SerpAPI credits.
 RETRY_DELAYS = (20, 60)
+
+# Per-request limit for every provider. Without it a stalled connection blocks the
+# run until the workflow timeout kills it, and no retry or fallback model ever runs.
+REQUEST_TIMEOUT_SECONDS = 180
 TRANSIENT_STATUS = {408, 409, 429, 500, 502, 503, 504, 529}
 TRANSIENT_NAMES = {
     "ServerError", "InternalServerError", "ServiceUnavailable", "RateLimitError", "APIConnectionError",
@@ -147,7 +151,9 @@ def _call_gemini(key: str, model: str, system: str, user: str, schema: dict, bas
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=key)
+    client = genai.Client(
+        api_key=key, http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_SECONDS * 1000)  # milliseconds
+    )
     response = client.models.generate_content(
         model=model,
         contents=user,
@@ -164,7 +170,7 @@ def _call_gemini(key: str, model: str, system: str, user: str, schema: dict, bas
 def _call_anthropic(key: str, model: str, system: str, user: str, schema: dict, base_url: str | None) -> str:
     import anthropic
 
-    client = anthropic.Anthropic(api_key=key, timeout=180.0)
+    client = anthropic.Anthropic(api_key=key, timeout=float(REQUEST_TIMEOUT_SECONDS))
     response = client.messages.create(
         model=model,
         max_tokens=16000,
@@ -180,7 +186,7 @@ def _call_anthropic(key: str, model: str, system: str, user: str, schema: dict, 
 def _call_openai_compatible(key: str, model: str, system: str, user: str, schema: dict, base_url: str | None) -> str:
     import openai
 
-    client = openai.OpenAI(api_key=key, base_url=base_url, timeout=180.0, max_retries=2)
+    client = openai.OpenAI(api_key=key, base_url=base_url, timeout=float(REQUEST_TIMEOUT_SECONDS), max_retries=2)
     strict_schema = strictify(schema)
     messages = [
         {
