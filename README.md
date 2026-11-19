@@ -134,6 +134,16 @@ python scraper/fetch_sentiment.py       # rewrites the board, charts and history
 
 <sub>Not financial advice. Rankings are automated estimates of public chatter and can be wrong.</sub>
 
+## Limits
+
+- **It measures chatter, not what anyone bought.** There is no position data behind the board and no test of whether mentions or mood say anything about later prices. It is not a signal.
+- **Mentions are only as complete as ApeWisdom.** Counts come from one tracker and the communities set in `data.apewisdom_filter`. If it returns fewer than 5 tickers, the board falls back to model estimates, marked `~`.
+- **Mood is a model reading search snippets**, not whole threads, and it is not checked against hand-labelled posts. When the forum text has no evidence on a ticker, the model must answer 50% and "other", and the board shows `–` instead of a mood.
+- **Share classes count separately.** GOOG and GOOGL are two rows, because the mention tracker counts them as two tickers.
+- **Timing.** The workflow runs at 13:30 UTC Monday to Friday, with no US holiday calendar. That is an hour before the US open in winter, but the open itself during US daylight saving time.
+- **A failed run keeps the old board.** If a source or the model fails, nothing is overwritten; the "Updated" line shows how old the board is.
+- **Tests run locally only.** `pytest` covers config, sources, model adapters, sanitizing and rendering offline; the scheduled workflow runs the scraper, not the tests.
+
 ## License
 
 [MIT](LICENSE)
