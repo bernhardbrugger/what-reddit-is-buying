@@ -22,7 +22,8 @@ jobs:
   update:
     name: Fetch, analyse and commit
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Search ~2 min + worst case for scoring: 2 models x (3 attempts x 180 s + 80 s backoff).
+    timeout-minutes: 25
     permissions:
       contents: write   # commit the refreshed README
     steps:
