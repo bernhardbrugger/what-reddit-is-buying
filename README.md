@@ -4,7 +4,7 @@
 
 <p align="center">
   <b>The stocks retail is piling into, ranked every trading day.</b><br>
-  Measured mentions · Mood-scored · Rank moves · Fresh before the US open
+  Measured mentions · Mood-scored · Rank moves · Updated every weekday
 </p>
 
 <p align="center">
@@ -140,7 +140,7 @@ python scraper/fetch_sentiment.py       # rewrites the board, charts and history
 - **Mentions are only as complete as ApeWisdom.** Counts come from one tracker and the communities set in `data.apewisdom_filter`. If it returns fewer than 5 tickers, the board falls back to model estimates, marked `~`.
 - **Mood is a model reading search snippets**, not whole threads, and it is not checked against hand-labelled posts. When the forum text has no evidence on a ticker, the model must answer 50% and "other", and the board shows `–` instead of a mood.
 - **Share classes count separately.** GOOG and GOOGL are two rows, because the mention tracker counts them as two tickers.
-- **Timing.** The workflow runs at 13:30 UTC Monday to Friday, with no US holiday calendar. That is an hour before the US open in winter, but the open itself during US daylight saving time.
+- **Timing.** The workflow is scheduled for 13:30 UTC Monday to Friday (before the US open in winter, at the open in summer), with no US holiday calendar. GitHub starts scheduled jobs late when it is busy: the last four runs started between 20:35 and 22:58 UTC, after the US close. Treat the board as end-of-day, not pre-market.
 - **A failed run keeps the old board.** If a source or the model fails, nothing is overwritten; the "Updated" line shows how old the board is.
 - **Tests run locally only.** `pytest` covers config, sources, model adapters, sanitizing and rendering offline; the scheduled workflow runs the scraper, not the tests.
 
