@@ -182,9 +182,14 @@ def _diagnose(response: dict[str, Any]) -> str:
 
 
 def _widened(params: dict[str, Any]) -> dict[str, Any] | None:
-    """The same search over a longer window, for when Google comes back empty for the last 24h."""
+    """A second attempt for a search that came back empty.
+
+    An empty Google Forums search is retried on the regular Google engine over a longer window:
+    on 17 and 19 Nov 2026 Google Forums answered "Fully empty" for every query, and the same
+    engine with a wider window stayed empty too, so only a different engine helps there.
+    """
     if params.get("engine") == "google_forums" and params.get("period_value") == 1:
-        return {**params, "period_value": WIDE_DAYS}
+        return {"engine": "google", "q": params["q"], "tbs": f"qdr:d{WIDE_DAYS}", "hl": params.get("hl", "en"), "gl": params.get("gl", "us")}
     if params.get("engine") == "google" and params.get("tbs") == "qdr:d":
         return {**params, "tbs": "qdr:w"}
     return None

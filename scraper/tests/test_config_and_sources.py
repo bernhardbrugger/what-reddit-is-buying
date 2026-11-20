@@ -162,7 +162,10 @@ def test_partial_failure_is_tolerated_and_empty_search_is_retried_wider(monkeypa
     )
     assert len(client.calls) == 5
     pulse, retry = client.calls[2], client.calls[3]
-    assert pulse["q"] == retry["q"] and pulse["period_value"] == 1 and retry["period_value"] == sources.WIDE_DAYS
+    assert pulse["q"] == retry["q"] and pulse["period_value"] == 1
+    # Google Forums itself can be empty for every query, so the retry goes to the regular engine.
+    assert pulse["engine"] == "google_forums" and retry["engine"] == "google"
+    assert retry["tbs"] == f"qdr:d{sources.WIDE_DAYS}" and "period_value" not in retry
     assert "abcdef0123456789" not in raw and "no data available" in raw
 
 
