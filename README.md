@@ -112,6 +112,27 @@ The config is validated on every run. If it would need more searches than `sourc
 
 Searches per run: `ceil(communities / per_query)` plus extra sites, daily threads and market data. The default setup uses 4 SerpAPI credits per run.
 
+## Run it locally
+
+Python 3.12, the same version the workflow uses. The tests need no keys and no network:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate              # Windows: .venv\Scripts\activate
+pip install -r scraper/requirements-dev.txt
+python -m pytest -q scraper/tests      # 92 passed
+```
+
+A real run needs the two keys. Copy [`.env.example`](.env.example) to `.env` (git ignores it) and fill it in, then:
+
+```bash
+python scraper/fetch_sentiment.py
+```
+
+It spends SerpAPI credits like a scheduled run and rewrites the board in `README.md`, the graphics in `assets/` and
+`data/history.json` in your working copy; it does not commit. Without keys it stops before any request:
+`Missing required environment variable(s): SERPAPI_KEY, LLM_API_KEY (or GEMINI_API_KEY)`.
+
 ## Data sources
 
 Forum text via [SerpAPI](https://serpapi.com) (Google), mention counts via [ApeWisdom](https://apewisdom.io), price moves via Yahoo Finance's public chart data, mood scoring by the model you pick. The free sources are best effort: if one is down, the board still publishes, with estimates marked `~` and blank prices instead of invented ones.
