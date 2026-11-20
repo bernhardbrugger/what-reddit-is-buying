@@ -19,26 +19,26 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611162259" alt="Reddit sentiment board: No clear retail leader today" width="100%">
+<img src="assets/board.svg?v=202611202126" alt="Reddit sentiment board: Retail buyers run for cover as broad tech pullbacks deepen." width="100%">
 
-<sub>Updated Monday, 16 Nov 2026 · 22:59 UTC</sub>
+<sub>Updated Friday, 20 Nov 2026 · 21:26 UTC</sub>
 
-> **Dow Jones** 🔴 ▼ 1.41% · **S\&P 500** 🔴 ▼ 1.92% · **Nasdaq** 🔴 ▼ 2.49% · **Russell** 🔴 ▼ 1.70% · **VIX** 🟢 ▲ 18.70%
+> **Dow Jones** 🔴 ▼ 1.93% · **S\&P 500** 🔴 ▼ 3.70% · **Nasdaq** 🔴 ▼ 5.28% · **Russell** 🔴 ▼ 2.76% · **VIX** 🟢 ▲ 30.49%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 1,200<br><sub>🔥 +187%</sub> | – | 🔴 ▼ 4.1% | – | – |
-| 2 | ▲3 | **MU**<br><sub>Micron Technology</sub> | 114<br><sub>🔥 +612%</sub> | – | 🔴 ▼ 7.6% | – | – |
-| 3 | ▼1 | **AMD**<br><sub>AMD</sub> | 102<br><sub>🔥 +59%</sub> | – | 🔴 ▼ 5.6% | – | – |
-| 4 | – | **NBIS**<br><sub>Nebius Group</sub> | 99<br><sub>🔥 +519%</sub> | – | 🔴 ▼ 7.6% | – | – |
-| 5 | 🆕 | **GOOGL**<br><sub>Alphabet \(Google\)</sub> | 89 | – | 🔴 ▼ 4.1% | – | – |
-| 6 | 🆕 | **ASTS**<br><sub>AST SpaceMobile</sub> | 78<br><sub>🔥 +388%</sub> | – | 🔴 ▼ 12.3% | – | – |
-| 7 | ▲3 | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 67<br><sub>🔥 +379%</sub> | – | 🔴 ▼ 3.8% | – | – |
-| 8 | 🆕 | **SPCX**<br><sub>SpaceX</sub> | 67<br><sub>🔥 +49%</sub> | – | 🔴 ▼ 1.3% | – | – |
-| 9 | 🆕 | **SNDK**<br><sub>Sandisk</sub> | 64<br><sub>🔥 +357%</sub> | – | 🔴 ▼ 8.6% | – | – |
-| 10 | 🆕 | **AAPL**<br><sub>Apple</sub> | 53 | – | 🔴 ▼ 1.0% | – | – |
+| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 1,501<br><sub>🔥 +68%</sub> | 🟢 55% bull | 🔴 ▼ 14.0% | 🛒 Dip buy | Traders keep trying to catch the falling knife in tech. |
+| 2 | ▲1 | **AMD**<br><sub>AMD</sub> | 328<br><sub>🔴▼ -33%</sub> | 🔴 35% bull | 🔴 ▼ 13.2% | 🏭 Sector | Retail is capitulating after taking heavy fire. |
+| 3 | ▼1 | **MU**<br><sub>Micron Technology</sub> | 236<br><sub>🔥 +102%</sub> | 🔴 40% bull | 🔴 ▼ 13.9% | 🚀 Momentum | Crowd is split between put hedges and speculative calls. |
+| 4 | ▲5 | **SNDK**<br><sub>Sandisk</sub> | 186<br><sub>🔥 +280%</sub> | – | 🔴 ▼ 16.1% | – | – |
+| 5 | ▲2 | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 181<br><sub>🔥 +55%</sub> | – | 🔴 ▼ 2.6% | – | – |
+| 6 | 🆕 | **SO**<br><sub>Southern Company</sub> | 147<br><sub>🔥 +950%</sub> | – | 🔴 ▼ 0.2% | – | – |
+| 7 | ▼3 | **NBIS**<br><sub>Nebius Group</sub> | 124<br><sub>🟢▲ +39%</sub> | 🔴 40% bull | 🔴 ▼ 16.1% | 🛒 Dip buy | Retail is struggling to average down as confidence fades. |
+| 8 | 🆕 | **PUMP**<br><sub>ProPetro</sub> | 117 | – | 🔴 ▼ 8.8% | – | – |
+| 9 | ▼4 | **GOOGL**<br><sub>Alphabet \(Google\)</sub> | 109<br><sub>🟢▲ +33%</sub> | 🟢 60% bull | 🔴 ▼ 2.7% | 🏭 Sector | Bulls are slowly rotating into relative safe havens. |
+| 10 | – | **AAPL**<br><sub>Apple</sub> | 97<br><sub>🔥 +439%</sub> | – | 🔴 ▼ 1.9% | – | – |
 
-<img src="assets/trend.svg?v=202611162259" alt="Retail sentiment trend over the last sessions" width="100%">
+<img src="assets/trend.svg?v=202611202126" alt="Retail sentiment trend over the last sessions" width="100%">
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>

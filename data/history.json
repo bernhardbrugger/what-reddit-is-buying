@@ -135,6 +135,74 @@
      "bullish_pct": 50
     }
    ]
+  },
+  {
+   "date": "2026-11-20",
+   "bullish_pct": 25,
+   "bearish_pct": 65,
+   "headline": "Retail buyers run for cover as broad tech pullbacks deepen.",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 1501,
+     "bullish_pct": 55
+    },
+    {
+     "ticker": "AMD",
+     "rank": 2,
+     "mentions": 328,
+     "bullish_pct": 35
+    },
+    {
+     "ticker": "MU",
+     "rank": 3,
+     "mentions": 236,
+     "bullish_pct": 40
+    },
+    {
+     "ticker": "SNDK",
+     "rank": 4,
+     "mentions": 186,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "GOOG",
+     "rank": 5,
+     "mentions": 181,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SO",
+     "rank": 6,
+     "mentions": 147,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "NBIS",
+     "rank": 7,
+     "mentions": 124,
+     "bullish_pct": 40
+    },
+    {
+     "ticker": "PUMP",
+     "rank": 8,
+     "mentions": 117,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "GOOGL",
+     "rank": 9,
+     "mentions": 109,
+     "bullish_pct": 60
+    },
+    {
+     "ticker": "AAPL",
+     "rank": 10,
+     "mentions": 97,
+     "bullish_pct": 50
+    }
+   ]
   }
  ]
 }
