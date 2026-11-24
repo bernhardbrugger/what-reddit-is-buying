@@ -203,6 +203,74 @@
      "bullish_pct": 50
     }
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "bullish_pct": 75,
+   "bearish_pct": 20,
+   "headline": "Desk sees massive risk on wave as retail piles back into tech",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 1770,
+     "bullish_pct": 85
+    },
+    {
+     "ticker": "AMD",
+     "rank": 2,
+     "mentions": 128,
+     "bullish_pct": 60
+    },
+    {
+     "ticker": "HR",
+     "rank": 3,
+     "mentions": 122,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "NYT",
+     "rank": 4,
+     "mentions": 118,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "MU",
+     "rank": 5,
+     "mentions": 89,
+     "bullish_pct": 70
+    },
+    {
+     "ticker": "DTE",
+     "rank": 6,
+     "mentions": 72,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SOXL",
+     "rank": 7,
+     "mentions": 62,
+     "bullish_pct": 90
+    },
+    {
+     "ticker": "AM",
+     "rank": 8,
+     "mentions": 61,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "ET",
+     "rank": 9,
+     "mentions": 59,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "CIA",
+     "rank": 10,
+     "mentions": 50,
+     "bullish_pct": 50
+    }
+   ]
   }
  ]
 }

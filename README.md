@@ -19,26 +19,26 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611202126" alt="Reddit sentiment board: Retail buyers run for cover as broad tech pullbacks deepen." width="100%">
+<img src="assets/board.svg?v=202611240111" alt="Reddit sentiment board: Desk sees massive risk on wave as retail piles back into tech" width="100%">
 
-<sub>Updated Friday, 20 Nov 2026 · 21:26 UTC</sub>
+<sub>Updated Tuesday, 24 Nov 2026 · 01:11 UTC</sub>
 
-> **Dow Jones** 🔴 ▼ 1.93% · **S\&P 500** 🔴 ▼ 3.70% · **Nasdaq** 🔴 ▼ 5.28% · **Russell** 🔴 ▼ 2.76% · **VIX** 🟢 ▲ 30.49%
+> **Dow Jones** 🟢 ▲ 3.01% · **S\&P 500** 🟢 ▲ 4.73% · **Nasdaq** 🟢 ▲ 6.51% · **Russell** 🟢 ▲ 3.40% · **VIX** 🔴 ▼ 25.83%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 1,501<br><sub>🔥 +68%</sub> | 🟢 55% bull | 🔴 ▼ 14.0% | 🛒 Dip buy | Traders keep trying to catch the falling knife in tech. |
-| 2 | ▲1 | **AMD**<br><sub>AMD</sub> | 328<br><sub>🔴▼ -33%</sub> | 🔴 35% bull | 🔴 ▼ 13.2% | 🏭 Sector | Retail is capitulating after taking heavy fire. |
-| 3 | ▼1 | **MU**<br><sub>Micron Technology</sub> | 236<br><sub>🔥 +102%</sub> | 🔴 40% bull | 🔴 ▼ 13.9% | 🚀 Momentum | Crowd is split between put hedges and speculative calls. |
-| 4 | ▲5 | **SNDK**<br><sub>Sandisk</sub> | 186<br><sub>🔥 +280%</sub> | – | 🔴 ▼ 16.1% | – | – |
-| 5 | ▲2 | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 181<br><sub>🔥 +55%</sub> | – | 🔴 ▼ 2.6% | – | – |
-| 6 | 🆕 | **SO**<br><sub>Southern Company</sub> | 147<br><sub>🔥 +950%</sub> | – | 🔴 ▼ 0.2% | – | – |
-| 7 | ▼3 | **NBIS**<br><sub>Nebius Group</sub> | 124<br><sub>🟢▲ +39%</sub> | 🔴 40% bull | 🔴 ▼ 16.1% | 🛒 Dip buy | Retail is struggling to average down as confidence fades. |
-| 8 | 🆕 | **PUMP**<br><sub>ProPetro</sub> | 117 | – | 🔴 ▼ 8.8% | – | – |
-| 9 | ▼4 | **GOOGL**<br><sub>Alphabet \(Google\)</sub> | 109<br><sub>🟢▲ +33%</sub> | 🟢 60% bull | 🔴 ▼ 2.7% | 🏭 Sector | Bulls are slowly rotating into relative safe havens. |
-| 10 | – | **AAPL**<br><sub>Apple</sub> | 97<br><sub>🔥 +439%</sub> | – | 🔴 ▼ 1.9% | – | – |
+| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 1,770<br><sub>🔥 +469%</sub> | 🟢 85% bull | 🟢 ▲ 31.5% | 🚀 Momentum | Desk flooded with aggressive upside bets after massive momentum surge |
+| 2 | – | **AMD**<br><sub>AMD</sub> | 128<br><sub>🔥 +172%</sub> | 🟢 60% bull | 🟢 ▲ 6.8% | 🚀 Momentum | Riding the broader sector wave with quiet confidence |
+| 3 | 🆕 | **HR**<br><sub>Healthcare Realty</sub> | 122 | – | 🟢 ▲ 2.1% | – | – |
+| 4 | 🆕 | **NYT**<br><sub>New York Times</sub> | 118<br><sub>🔥 +521%</sub> | – | 🔴 ▼ 0.4% | – | – |
+| 5 | ▼2 | **MU**<br><sub>Micron Technology</sub> | 89<br><sub>🔥 +128%</sub> | 🟢 70% bull | 🟢 ▲ 19.0% | 🚀 Momentum | Catching spillover enthusiasm from the main semiconductor leader |
+| 6 | 🆕 | **DTE**<br><sub>DTE Energy</sub> | 72<br><sub>🔥 +95%</sub> | ⚪ 50% bull | 🟢 ▲ 0.9% | 🌐 Macro | Defensive play gathering dust during the growth stampede |
+| 7 | 🆕 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 62<br><sub>🔥 +100%</sub> | 🟢 90% bull | 🟢 ▲ 39.9% | 🚀 Momentum | Leveraged exposure drawing heavy speculative fire from the floor |
+| 8 | 🆕 | **AM**<br><sub>Antero Midstream</sub> | 61<br><sub>🔥 +369%</sub> | – | 🟢 ▲ 0.3% | – | – |
+| 9 | 🆕 | **ET**<br><sub>Energy Transfer Partners</sub> | 59<br><sub>🔥 +228%</sub> | – | 🔴 ▼ 1.2% | – | – |
+| 10 | 🆕 | **CIA**<br><sub>Citizens Inc</sub> | 50 | – | 🟢 ▲ 1.9% | – | – |
 
-<img src="assets/trend.svg?v=202611202126" alt="Retail sentiment trend over the last sessions" width="100%">
+<img src="assets/trend.svg?v=202611240111" alt="Retail sentiment trend over the last sessions" width="100%">
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>

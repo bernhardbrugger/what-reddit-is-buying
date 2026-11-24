@@ -1,98 +1,97 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 632" width="960" height="632" role="img" aria-label="Reddit sentiment board">
-<title>Retail buyers run for cover as broad tech pullbacks deepen.</title>
+<title>Desk sees massive risk on wave as retail piles back into tech</title>
 <defs><clipPath id="card"><rect width="960" height="632" rx="16"/></clipPath><linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb000" stop-opacity="0.16"/><stop offset="1" stop-color="#ffb000" stop-opacity="0"/></linearGradient></defs>
 <g clip-path="url(#card)">
 <rect width="960" height="632" fill="#0b0f12"/>
 <rect width="960" height="170" fill="url(#glow)"/>
 <rect width="960" height="4" fill="#ffb000"/>
 <text x="32" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="700" font-style="normal" letter-spacing="4" fill="#ffb000" text-anchor="start">WHAT REDDIT IS BUYING</text>
-<text x="928" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#7d8b96" text-anchor="end">Fri 20 Nov 2026 · 21:26 UTC</text>
-<text x="32" y="90" font-family="'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif" font-size="24" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">Retail buyers run for cover as broad tech pullbacks deepen.</text>
-<rect x="32" y="114" width="224.0" height="16" fill="#00d26a"/>
-<rect x="256.0" y="114" width="89.6" height="16" fill="#2b3640"/>
-<rect x="345.6" y="114" width="582.4" height="16" fill="#ff3b4e"/>
-<text x="32" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="700" font-style="normal" letter-spacing="2" fill="#00d26a" text-anchor="start">BULLISH 25%</text>
-<text x="480" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="2" fill="#8794a0" text-anchor="middle">NEUTRAL 10%</text>
-<text x="928" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="700" font-style="normal" letter-spacing="2" fill="#ff3b4e" text-anchor="end">BEARISH 65%</text>
+<text x="928" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#7d8b96" text-anchor="end">Tue 24 Nov 2026 · 01:11 UTC</text>
+<text x="32" y="90" font-family="'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif" font-size="24" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">Desk sees massive risk on wave as retail piles back into tech</text>
+<rect x="32" y="114" width="672.0" height="16" fill="#00d26a"/>
+<rect x="704.0" y="114" width="44.8" height="16" fill="#2b3640"/>
+<rect x="748.8" y="114" width="179.2" height="16" fill="#ff3b4e"/>
+<text x="32" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="700" font-style="normal" letter-spacing="2" fill="#00d26a" text-anchor="start">BULLISH 75%</text>
+<text x="480" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="2" fill="#8794a0" text-anchor="middle">NEUTRAL 5%</text>
+<text x="928" y="156" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="700" font-style="normal" letter-spacing="2" fill="#ff3b4e" text-anchor="end">BEARISH 20%</text>
 <line x1="32" y1="180" x2="928" y2="180" stroke="#1e272e"/>
 <text x="32" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">01</text>
 <text x="76" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">NVDA</text>
 <rect x="176" y="197" width="360.0" height="16" rx="2" fill="#00d26a" fill-opacity="0.9"/>
-<text x="546" y="211" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">1,501</text>
-<text x="715" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">55% bull</text>
-<text x="624" y="211" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 68%</text>
-<text x="928" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 14.0%</text>
+<text x="546" y="211" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">1,770</text>
+<text x="715" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">85% bull</text>
+<text x="624" y="211" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 469%</text>
+<text x="928" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 31.5%</text>
 <line x1="32" y1="226" x2="928" y2="226" stroke="#141a1f"/>
 <text x="32" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">02</text>
 <text x="76" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">AMD</text>
-<rect x="176" y="237" width="78.7" height="16" rx="2" fill="#ff3b4e" fill-opacity="0.9"/>
-<text x="265" y="251" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">328</text>
-<text x="715" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="start">35% bull</text>
-<text x="624" y="251" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="start">▼ 33%</text>
-<text x="928" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 13.2%</text>
+<rect x="176" y="237" width="26.0" height="16" rx="2" fill="#00d26a" fill-opacity="0.9"/>
+<text x="212" y="251" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">128</text>
+<text x="715" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">60% bull</text>
+<text x="624" y="251" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 172%</text>
+<text x="928" y="253" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 6.8%</text>
 <line x1="32" y1="266" x2="928" y2="266" stroke="#141a1f"/>
 <text x="32" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">03</text>
-<text x="76" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">MU</text>
-<rect x="176" y="277" width="56.6" height="16" rx="2" fill="#ff3b4e" fill-opacity="0.9"/>
-<text x="243" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">236</text>
-<text x="715" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="start">40% bull</text>
-<text x="624" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 102%</text>
-<text x="928" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 13.9%</text>
+<text x="76" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">HR</text>
+<rect x="176" y="277" width="24.8" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
+<text x="211" y="291" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">122</text>
+<text x="715" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
+<text x="928" y="293" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 2.1%</text>
 <line x1="32" y1="306" x2="928" y2="306" stroke="#141a1f"/>
 <text x="32" y="333" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">04</text>
-<text x="76" y="333" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">SNDK</text>
-<rect x="176" y="317" width="44.6" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
-<text x="231" y="331" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">186</text>
+<text x="76" y="333" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">NYT</text>
+<rect x="176" y="317" width="24.0" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
+<text x="210" y="331" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">118</text>
 <text x="715" y="333" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
-<text x="624" y="331" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 280%</text>
-<text x="928" y="333" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 16.1%</text>
+<text x="624" y="331" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 521%</text>
+<text x="928" y="333" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 0.4%</text>
 <line x1="32" y1="346" x2="928" y2="346" stroke="#141a1f"/>
 <text x="32" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">05</text>
-<text x="76" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">GOOG</text>
-<rect x="176" y="357" width="43.4" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
-<text x="229" y="371" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">181</text>
-<text x="715" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
-<text x="624" y="371" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 55%</text>
-<text x="928" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 2.6%</text>
+<text x="76" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">MU</text>
+<rect x="176" y="357" width="18.1" height="16" rx="2" fill="#00d26a" fill-opacity="0.9"/>
+<text x="204" y="371" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">89</text>
+<text x="715" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">70% bull</text>
+<text x="624" y="371" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 128%</text>
+<text x="928" y="373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 19.0%</text>
 <line x1="32" y1="386" x2="928" y2="386" stroke="#141a1f"/>
 <text x="32" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">06</text>
-<text x="76" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">SO</text>
-<rect x="176" y="397" width="35.3" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
-<text x="221" y="411" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">147</text>
-<text x="715" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
-<text x="624" y="411" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 950%</text>
-<text x="928" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 0.2%</text>
+<text x="76" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">DTE</text>
+<rect x="176" y="397" width="14.6" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
+<text x="201" y="411" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">72</text>
+<text x="715" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">50% bull</text>
+<text x="624" y="411" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 95%</text>
+<text x="928" y="413" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 0.9%</text>
 <line x1="32" y1="426" x2="928" y2="426" stroke="#141a1f"/>
 <text x="32" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">07</text>
-<text x="76" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">NBIS</text>
-<rect x="176" y="437" width="29.7" height="16" rx="2" fill="#ff3b4e" fill-opacity="0.9"/>
-<text x="216" y="451" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">124</text>
-<text x="715" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="start">40% bull</text>
-<text x="624" y="451" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 39%</text>
-<text x="928" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 16.1%</text>
+<text x="76" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">SOXL</text>
+<rect x="176" y="437" width="12.6" height="16" rx="2" fill="#00d26a" fill-opacity="0.9"/>
+<text x="199" y="451" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">62</text>
+<text x="715" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">90% bull</text>
+<text x="624" y="451" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 100%</text>
+<text x="928" y="453" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 39.9%</text>
 <line x1="32" y1="466" x2="928" y2="466" stroke="#141a1f"/>
 <text x="32" y="493" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">08</text>
-<text x="76" y="493" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">PUMP</text>
-<rect x="176" y="477" width="28.1" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
-<text x="214" y="491" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">117</text>
+<text x="76" y="493" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">AM</text>
+<rect x="176" y="477" width="12.4" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
+<text x="198" y="491" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">61</text>
 <text x="715" y="493" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
-<text x="928" y="493" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 8.8%</text>
+<text x="624" y="491" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 369%</text>
+<text x="928" y="493" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 0.3%</text>
 <line x1="32" y1="506" x2="928" y2="506" stroke="#141a1f"/>
 <text x="32" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">09</text>
-<text x="76" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">GOOGL</text>
-<rect x="176" y="517" width="26.1" height="16" rx="2" fill="#00d26a" fill-opacity="0.9"/>
-<text x="212" y="531" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">109</text>
-<text x="715" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">60% bull</text>
-<text x="624" y="531" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 33%</text>
-<text x="928" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 2.7%</text>
+<text x="76" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">ET</text>
+<rect x="176" y="517" width="12.0" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
+<text x="198" y="531" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">59</text>
+<text x="715" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
+<text x="624" y="531" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 228%</text>
+<text x="928" y="533" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 1.2%</text>
 <line x1="32" y1="546" x2="928" y2="546" stroke="#141a1f"/>
 <text x="32" y="573" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="18" font-weight="700" font-style="normal" letter-spacing="0" fill="#8a6100" text-anchor="start">10</text>
-<text x="76" y="573" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">AAPL</text>
-<rect x="176" y="557" width="23.3" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
-<text x="209" y="571" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">97</text>
+<text x="76" y="573" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" font-weight="700" font-style="normal" letter-spacing="0" fill="#ffffff" text-anchor="start">CIA</text>
+<rect x="176" y="557" width="10.2" height="16" rx="2" fill="#8794a0" fill-opacity="0.9"/>
+<text x="196" y="571" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" font-weight="400" font-style="normal" letter-spacing="0" fill="#aab6bf" text-anchor="start">50</text>
 <text x="715" y="573" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="400" font-style="normal" letter-spacing="0" fill="#8794a0" text-anchor="start">no signal</text>
-<text x="624" y="571" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" font-weight="400" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="start">▲ 439%</text>
-<text x="928" y="573" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#ff3b4e" text-anchor="end">▼ 1.9%</text>
+<text x="928" y="573" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="700" font-style="normal" letter-spacing="0" fill="#00d26a" text-anchor="end">▲ 1.9%</text>
 <text x="32" y="614" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="400" font-style="normal" letter-spacing="2" fill="#5a6770" text-anchor="start">MENTIONS 24H · CHANGE · MOOD · LAST SESSION</text>
 <text x="928" y="614" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="400" font-style="normal" letter-spacing="0" fill="#5a6770" text-anchor="end">Automated estimate. Not financial advice.</text>
 </g></svg>
