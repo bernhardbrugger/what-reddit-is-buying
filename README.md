@@ -19,26 +19,26 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611240111" alt="Reddit sentiment board: Desk sees massive risk on wave as retail piles back into tech" width="100%">
+<img src="assets/board.svg?v=202611242314" alt="Reddit sentiment board: Retail traders chase upside momentum with aggressive call buying." width="100%">
 
-<sub>Updated Tuesday, 24 Nov 2026 · 01:11 UTC</sub>
+<sub>Updated Tuesday, 24 Nov 2026 · 23:14 UTC</sub>
 
-> **Dow Jones** 🟢 ▲ 3.01% · **S\&P 500** 🟢 ▲ 4.73% · **Nasdaq** 🟢 ▲ 6.51% · **Russell** 🟢 ▲ 3.40% · **VIX** 🔴 ▼ 25.83%
+> **Dow Jones** 🟢 ▲ 0.85% · **S\&P 500** 🔴 ▼ 0.50% · **Nasdaq** 🔴 ▼ 1.48% · **Russell** 🟢 ▲ 0.57% · **VIX** 🔴 ▼ 0.98%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 1,770<br><sub>🔥 +469%</sub> | 🟢 85% bull | 🟢 ▲ 31.5% | 🚀 Momentum | Desk flooded with aggressive upside bets after massive momentum surge |
-| 2 | – | **AMD**<br><sub>AMD</sub> | 128<br><sub>🔥 +172%</sub> | 🟢 60% bull | 🟢 ▲ 6.8% | 🚀 Momentum | Riding the broader sector wave with quiet confidence |
-| 3 | 🆕 | **HR**<br><sub>Healthcare Realty</sub> | 122 | – | 🟢 ▲ 2.1% | – | – |
-| 4 | 🆕 | **NYT**<br><sub>New York Times</sub> | 118<br><sub>🔥 +521%</sub> | – | 🔴 ▼ 0.4% | – | – |
-| 5 | ▼2 | **MU**<br><sub>Micron Technology</sub> | 89<br><sub>🔥 +128%</sub> | 🟢 70% bull | 🟢 ▲ 19.0% | 🚀 Momentum | Catching spillover enthusiasm from the main semiconductor leader |
-| 6 | 🆕 | **DTE**<br><sub>DTE Energy</sub> | 72<br><sub>🔥 +95%</sub> | ⚪ 50% bull | 🟢 ▲ 0.9% | 🌐 Macro | Defensive play gathering dust during the growth stampede |
-| 7 | 🆕 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 62<br><sub>🔥 +100%</sub> | 🟢 90% bull | 🟢 ▲ 39.9% | 🚀 Momentum | Leveraged exposure drawing heavy speculative fire from the floor |
-| 8 | 🆕 | **AM**<br><sub>Antero Midstream</sub> | 61<br><sub>🔥 +369%</sub> | – | 🟢 ▲ 0.3% | – | – |
-| 9 | 🆕 | **ET**<br><sub>Energy Transfer Partners</sub> | 59<br><sub>🔥 +228%</sub> | – | 🔴 ▼ 1.2% | – | – |
-| 10 | 🆕 | **CIA**<br><sub>Citizens Inc</sub> | 50 | – | 🟢 ▲ 1.9% | – | – |
+| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 898<br><sub>🔴▼ -47%</sub> | 🟢 75% bull | 🔴 ▼ 5.9% | 🚀 Momentum | Traders are loading call options following massive upside. |
+| 2 | – | **AMD**<br><sub>AMD</sub> | 128<br><sub>🟢▲ +2%</sub> | 🔴 40% bull | 🔴 ▼ 8.9% | 🛒 Dip buy | Retail sentiment remains divided as traders debate valuations. |
+| 3 | 🆕 | **DELL**<br><sub>Dell</sub> | 122<br><sub>🔥 +542%</sub> | 🟢 55% bull | 🔴 ▼ 11.8% | 📊 Earnings | Investors are holding steady ahead of expected catalysts. |
+| 4 | ▼1 | **MU**<br><sub>Micron Technology</sub> | 98<br><sub>🟢▲ +17%</sub> | 🔴 35% bull | 🔴 ▼ 11.0% | 🛒 Dip buy | Bargain hunters step in to buy the recent sharp dip. |
+| 5 | ▲5 | **AAPL**<br><sub>Apple</sub> | 90<br><sub>🔥 +650%</sub> | 🟢 60% bull | 🟢 ▲ 1.4% | 🧪 Product | Retail accounts are holding shares while awaiting clear signals. |
+| 6 | ▼2 | **SNDK**<br><sub>Sandisk</sub> | 65<br><sub>🔥 +67%</sub> | ⚪ 50% bull | 🔴 ▼ 11.1% | 🏭 Sector | Traders monitor key sector peers for potential momentum. |
+| 7 | 🆕 | **DTE**<br><sub>DTE Energy</sub> | 62<br><sub>🔴▼ -16%</sub> | – | 🟢 ▲ 0.4% | – | – |
+| 8 | 🆕 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 60<br><sub>🔴▼ -8%</sub> | ⚪ 50% bull | 🔴 ▼ 24.6% | 🚀 Momentum | Traders hold leveraged exposure while watching broader momentum. |
+| 9 | 🆕 | **HR**<br><sub>Healthcare Realty</sub> | 57<br><sub>🔴▼ -47%</sub> | – | 🟢 ▲ 2.1% | – | – |
+| 10 | 🆕 | **SPCX**<br><sub>SpaceX</sub> | 53<br><sub>🔥 +194%</sub> | – | 🔴 ▼ 5.7% | – | – |
 
-<img src="assets/trend.svg?v=202611240111" alt="Retail sentiment trend over the last sessions" width="100%">
+<img src="assets/trend.svg?v=202611242314" alt="Retail sentiment trend over the last sessions" width="100%">
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>

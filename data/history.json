@@ -206,68 +206,68 @@
   },
   {
    "date": "2026-11-24",
-   "bullish_pct": 75,
-   "bearish_pct": 20,
-   "headline": "Desk sees massive risk on wave as retail piles back into tech",
+   "bullish_pct": 62,
+   "bearish_pct": 38,
+   "headline": "Retail traders chase upside momentum with aggressive call buying.",
    "top": [
     {
      "ticker": "NVDA",
      "rank": 1,
-     "mentions": 1770,
-     "bullish_pct": 85
+     "mentions": 898,
+     "bullish_pct": 75
     },
     {
      "ticker": "AMD",
      "rank": 2,
      "mentions": 128,
-     "bullish_pct": 60
+     "bullish_pct": 40
     },
     {
-     "ticker": "HR",
+     "ticker": "DELL",
      "rank": 3,
      "mentions": 122,
-     "bullish_pct": 50
-    },
-    {
-     "ticker": "NYT",
-     "rank": 4,
-     "mentions": 118,
-     "bullish_pct": 50
+     "bullish_pct": 55
     },
     {
      "ticker": "MU",
+     "rank": 4,
+     "mentions": 98,
+     "bullish_pct": 35
+    },
+    {
+     "ticker": "AAPL",
      "rank": 5,
-     "mentions": 89,
-     "bullish_pct": 70
+     "mentions": 90,
+     "bullish_pct": 60
+    },
+    {
+     "ticker": "SNDK",
+     "rank": 6,
+     "mentions": 65,
+     "bullish_pct": 50
     },
     {
      "ticker": "DTE",
-     "rank": 6,
-     "mentions": 72,
+     "rank": 7,
+     "mentions": 62,
      "bullish_pct": 50
     },
     {
      "ticker": "SOXL",
-     "rank": 7,
-     "mentions": 62,
-     "bullish_pct": 90
-    },
-    {
-     "ticker": "AM",
      "rank": 8,
-     "mentions": 61,
+     "mentions": 60,
      "bullish_pct": 50
     },
     {
-     "ticker": "ET",
+     "ticker": "HR",
      "rank": 9,
-     "mentions": 59,
+     "mentions": 57,
      "bullish_pct": 50
     },
     {
-     "ticker": "CIA",
+     "ticker": "SPCX",
      "rank": 10,
-     "mentions": 50,
+     "mentions": 53,
      "bullish_pct": 50
     }
    ]
