@@ -19,26 +19,26 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611242314" alt="Reddit sentiment board: Retail traders chase upside momentum with aggressive call buying." width="100%">
+<img src="assets/board.svg?v=202611252245" alt="Reddit sentiment board: Retail hedges index exposure while hunting call upside." width="100%">
 
-<sub>Updated Tuesday, 24 Nov 2026 · 23:14 UTC</sub>
+<sub>Updated Wednesday, 25 Nov 2026 · 22:45 UTC</sub>
 
-> **Dow Jones** 🟢 ▲ 0.85% · **S\&P 500** 🔴 ▼ 0.50% · **Nasdaq** 🔴 ▼ 1.48% · **Russell** 🟢 ▲ 0.57% · **VIX** 🔴 ▼ 0.98%
+> **Dow Jones** 🟢 ▲ 0.33% · **S\&P 500** 🔴 ▼ 0.25% · **Nasdaq** 🔴 ▼ 0.62% · **Russell** 🟢 ▲ 0.71% · **VIX** 🟢 ▲ 7.32%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 898<br><sub>🔴▼ -47%</sub> | 🟢 75% bull | 🔴 ▼ 5.9% | 🚀 Momentum | Traders are loading call options following massive upside. |
-| 2 | – | **AMD**<br><sub>AMD</sub> | 128<br><sub>🟢▲ +2%</sub> | 🔴 40% bull | 🔴 ▼ 8.9% | 🛒 Dip buy | Retail sentiment remains divided as traders debate valuations. |
-| 3 | 🆕 | **DELL**<br><sub>Dell</sub> | 122<br><sub>🔥 +542%</sub> | 🟢 55% bull | 🔴 ▼ 11.8% | 📊 Earnings | Investors are holding steady ahead of expected catalysts. |
-| 4 | ▼1 | **MU**<br><sub>Micron Technology</sub> | 98<br><sub>🟢▲ +17%</sub> | 🔴 35% bull | 🔴 ▼ 11.0% | 🛒 Dip buy | Bargain hunters step in to buy the recent sharp dip. |
-| 5 | ▲5 | **AAPL**<br><sub>Apple</sub> | 90<br><sub>🔥 +650%</sub> | 🟢 60% bull | 🟢 ▲ 1.4% | 🧪 Product | Retail accounts are holding shares while awaiting clear signals. |
-| 6 | ▼2 | **SNDK**<br><sub>Sandisk</sub> | 65<br><sub>🔥 +67%</sub> | ⚪ 50% bull | 🔴 ▼ 11.1% | 🏭 Sector | Traders monitor key sector peers for potential momentum. |
-| 7 | 🆕 | **DTE**<br><sub>DTE Energy</sub> | 62<br><sub>🔴▼ -16%</sub> | – | 🟢 ▲ 0.4% | – | – |
-| 8 | 🆕 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 60<br><sub>🔴▼ -8%</sub> | ⚪ 50% bull | 🔴 ▼ 24.6% | 🚀 Momentum | Traders hold leveraged exposure while watching broader momentum. |
-| 9 | 🆕 | **HR**<br><sub>Healthcare Realty</sub> | 57<br><sub>🔴▼ -47%</sub> | – | 🟢 ▲ 2.1% | – | – |
-| 10 | 🆕 | **SPCX**<br><sub>SpaceX</sub> | 53<br><sub>🔥 +194%</sub> | – | 🔴 ▼ 5.7% | – | – |
+| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 577<br><sub>🔴▼ -39%</sub> | 🟢 75% bull | 🔴 ▼ 3.9% | 📊 Earnings | Retail is loading up on call options around earnings. |
+| 2 | ▲2 | **MU**<br><sub>Micron Technology</sub> | 190<br><sub>🔥 +102%</sub> | – | 🔴 ▼ 4.6% | – | – |
+| 3 | ▼1 | **AMD**<br><sub>AMD</sub> | 135<br><sub>🟢▲ +6%</sub> | – | 🔴 ▼ 1.8% | – | – |
+| 4 | ▲4 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 117<br><sub>🔥 +98%</sub> | – | 🔴 ▼ 1.8% | – | – |
+| 5 | ▲1 | **SNDK**<br><sub>Sandisk</sub> | 113<br><sub>🔥 +85%</sub> | – | 🔴 ▼ 5.6% | – | – |
+| 6 | ▼3 | **DELL**<br><sub>Dell</sub> | 102<br><sub>🔴▼ -11%</sub> | – | 🟢 ▲ 0.6% | – | – |
+| 7 | ▼2 | **AAPL**<br><sub>Apple</sub> | 87<br><sub>⚪▬ 0%</sub> | – | 🟢 ▲ 0.4% | – | – |
+| 8 | ▼1 | **DTE**<br><sub>DTE Energy</sub> | 83<br><sub>🟢▲ +34%</sub> | – | ⚪ ▬ 0.0% | – | – |
+| 9 | ▲1 | **SPCX**<br><sub>SpaceX</sub> | 61<br><sub>🟢▲ +22%</sub> | – | 🟢 ▲ 1.3% | – | – |
+| 10 | 🆕 | **NBIS**<br><sub>Nebius Group</sub> | 58<br><sub>🔥 +132%</sub> | – | 🔴 ▼ 2.6% | – | – |
 
-<img src="assets/trend.svg?v=202611242314" alt="Retail sentiment trend over the last sessions" width="100%">
+<img src="assets/trend.svg?v=202611252245" alt="Retail sentiment trend over the last sessions" width="100%">
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>

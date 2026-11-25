@@ -271,6 +271,74 @@
      "bullish_pct": 50
     }
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "bullish_pct": 45,
+   "bearish_pct": 55,
+   "headline": "Retail hedges index exposure while hunting call upside.",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 577,
+     "bullish_pct": 75
+    },
+    {
+     "ticker": "MU",
+     "rank": 2,
+     "mentions": 190,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "AMD",
+     "rank": 3,
+     "mentions": 135,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SOXL",
+     "rank": 4,
+     "mentions": 117,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SNDK",
+     "rank": 5,
+     "mentions": 113,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "DELL",
+     "rank": 6,
+     "mentions": 102,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "AAPL",
+     "rank": 7,
+     "mentions": 87,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "DTE",
+     "rank": 8,
+     "mentions": 83,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SPCX",
+     "rank": 9,
+     "mentions": 61,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "NBIS",
+     "rank": 10,
+     "mentions": 58,
+     "bullish_pct": 50
+    }
+   ]
   }
  ]
 }
