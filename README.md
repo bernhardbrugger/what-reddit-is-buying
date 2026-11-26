@@ -19,26 +19,23 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611252245" alt="Reddit sentiment board: Retail hedges index exposure while hunting call upside." width="100%">
+<img src="assets/board.svg?v=202611262236" alt="Reddit sentiment board: Retail crowd hedges exposure while selective call buyers step in" width="100%">
 
-<sub>Updated Wednesday, 25 Nov 2026 · 22:45 UTC</sub>
+<sub>Updated Thursday, 26 Nov 2026 · 22:36 UTC</sub>
 
-> **Dow Jones** 🟢 ▲ 0.33% · **S\&P 500** 🔴 ▼ 0.25% · **Nasdaq** 🔴 ▼ 0.62% · **Russell** 🟢 ▲ 0.71% · **VIX** 🟢 ▲ 7.32%
+> **Dow Jones** 🟢 ▲ 0.33% · **S\&P 500** 🔴 ▼ 0.25% · **Nasdaq** 🔴 ▼ 0.62% · **Russell** 🟢 ▲ 0.71% · **VIX** 🟢 ▲ 1.67%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 577<br><sub>🔴▼ -39%</sub> | 🟢 75% bull | 🔴 ▼ 3.9% | 📊 Earnings | Retail is loading up on call options around earnings. |
-| 2 | ▲2 | **MU**<br><sub>Micron Technology</sub> | 190<br><sub>🔥 +102%</sub> | – | 🔴 ▼ 4.6% | – | – |
-| 3 | ▼1 | **AMD**<br><sub>AMD</sub> | 135<br><sub>🟢▲ +6%</sub> | – | 🔴 ▼ 1.8% | – | – |
-| 4 | ▲4 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 117<br><sub>🔥 +98%</sub> | – | 🔴 ▼ 1.8% | – | – |
-| 5 | ▲1 | **SNDK**<br><sub>Sandisk</sub> | 113<br><sub>🔥 +85%</sub> | – | 🔴 ▼ 5.6% | – | – |
-| 6 | ▼3 | **DELL**<br><sub>Dell</sub> | 102<br><sub>🔴▼ -11%</sub> | – | 🟢 ▲ 0.6% | – | – |
-| 7 | ▼2 | **AAPL**<br><sub>Apple</sub> | 87<br><sub>⚪▬ 0%</sub> | – | 🟢 ▲ 0.4% | – | – |
-| 8 | ▼1 | **DTE**<br><sub>DTE Energy</sub> | 83<br><sub>🟢▲ +34%</sub> | – | ⚪ ▬ 0.0% | – | – |
-| 9 | ▲1 | **SPCX**<br><sub>SpaceX</sub> | 61<br><sub>🟢▲ +22%</sub> | – | 🟢 ▲ 1.3% | – | – |
-| 10 | 🆕 | **NBIS**<br><sub>Nebius Group</sub> | 58<br><sub>🔥 +132%</sub> | – | 🔴 ▼ 2.6% | – | – |
+| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 214<br><sub>🔴▼ -63%</sub> | ⚪ 52% bull | 🔴 ▼ 3.9% | 🚀 Momentum | Traders remain sharply divided with heavy activity on both sides. |
+| 2 | ▲1 | **AMD**<br><sub>AMD</sub> | 48<br><sub>🔴▼ -64%</sub> | – | 🔴 ▼ 1.8% | – | – |
+| 3 | ▼1 | **MU**<br><sub>Micron Technology</sub> | 44<br><sub>🔴▼ -77%</sub> | – | 🔴 ▼ 4.6% | – | – |
+| 4 | ▲1 | **SNDK**<br><sub>Sandisk</sub> | 39<br><sub>🔴▼ -66%</sub> | – | 🔴 ▼ 5.6% | – | – |
+| 5 | ▲3 | **DTE**<br><sub>DTE Energy</sub> | 36<br><sub>🔴▼ -57%</sub> | – | ⚪ ▬ 0.0% | – | – |
+| 6 | ▼2 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 24<br><sub>🔴▼ -79%</sub> | 🔴 45% bull | 🔴 ▼ 1.8% | 🏭 Sector | Leveraged bulls attempt speculative entries into the pullback. |
+| 7 | 🆕 | **VT**<br><sub>Vanguard Group, Inc. - Vanguard Total World Stock ETF</sub> | 20<br><sub>🟢▲ +33%</sub> | – | ⚪ ▬ 0.0% | – | – |
 
-<img src="assets/trend.svg?v=202611252245" alt="Retail sentiment trend over the last sessions" width="100%">
+<img src="assets/trend.svg?v=202611262236" alt="Retail sentiment trend over the last sessions" width="100%">
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>

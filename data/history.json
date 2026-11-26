@@ -339,6 +339,56 @@
      "bullish_pct": 50
     }
    ]
+  },
+  {
+   "date": "2026-11-26",
+   "bullish_pct": 44,
+   "bearish_pct": 56,
+   "headline": "Retail crowd hedges exposure while selective call buyers step in",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 214,
+     "bullish_pct": 52
+    },
+    {
+     "ticker": "AMD",
+     "rank": 2,
+     "mentions": 48,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "MU",
+     "rank": 3,
+     "mentions": 44,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SNDK",
+     "rank": 4,
+     "mentions": 39,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "DTE",
+     "rank": 5,
+     "mentions": 36,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SOXL",
+     "rank": 6,
+     "mentions": 24,
+     "bullish_pct": 45
+    },
+    {
+     "ticker": "VT",
+     "rank": 7,
+     "mentions": 20,
+     "bullish_pct": 50
+    }
+   ]
   }
  ]
 }
