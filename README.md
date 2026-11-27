@@ -19,23 +19,26 @@
 ## Today's board
 
 <!-- RANKING:START -->
-<img src="assets/board.svg?v=202611262236" alt="Reddit sentiment board: Retail crowd hedges exposure while selective call buyers step in" width="100%">
+<img src="assets/board.svg?v=202611272215" alt="Reddit sentiment board: Retail traders load call options as broad risk appetite returns" width="100%">
 
-<sub>Updated Thursday, 26 Nov 2026 · 22:36 UTC</sub>
+<sub>Updated Friday, 27 Nov 2026 · 22:15 UTC</sub>
 
-> **Dow Jones** 🟢 ▲ 0.33% · **S\&P 500** 🔴 ▼ 0.25% · **Nasdaq** 🔴 ▼ 0.62% · **Russell** 🟢 ▲ 0.71% · **VIX** 🟢 ▲ 1.67%
+> **Dow Jones** 🟢 ▲ 1.18% · **S\&P 500** 🟢 ▲ 1.60% · **Nasdaq** 🟢 ▲ 2.31% · **Russell** 🟢 ▲ 1.71% · **VIX** 🔴 ▼ 11.16%
 
 | # | Move | Ticker | Mentions 24h | Mood | Price | Theme | Signal |
 |--:|:-:|:--|--:|:--|--:|:--|:--|
-| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 214<br><sub>🔴▼ -63%</sub> | ⚪ 52% bull | 🔴 ▼ 3.9% | 🚀 Momentum | Traders remain sharply divided with heavy activity on both sides. |
-| 2 | ▲1 | **AMD**<br><sub>AMD</sub> | 48<br><sub>🔴▼ -64%</sub> | – | 🔴 ▼ 1.8% | – | – |
-| 3 | ▼1 | **MU**<br><sub>Micron Technology</sub> | 44<br><sub>🔴▼ -77%</sub> | – | 🔴 ▼ 4.6% | – | – |
-| 4 | ▲1 | **SNDK**<br><sub>Sandisk</sub> | 39<br><sub>🔴▼ -66%</sub> | – | 🔴 ▼ 5.6% | – | – |
-| 5 | ▲3 | **DTE**<br><sub>DTE Energy</sub> | 36<br><sub>🔴▼ -57%</sub> | – | ⚪ ▬ 0.0% | – | – |
-| 6 | ▼2 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 24<br><sub>🔴▼ -79%</sub> | 🔴 45% bull | 🔴 ▼ 1.8% | 🏭 Sector | Leveraged bulls attempt speculative entries into the pullback. |
-| 7 | 🆕 | **VT**<br><sub>Vanguard Group, Inc. - Vanguard Total World Stock ETF</sub> | 20<br><sub>🟢▲ +33%</sub> | – | ⚪ ▬ 0.0% | – | – |
+| 1 | – | **NVDA**<br><sub>NVIDIA</sub> | 341<br><sub>🔥 +57%</sub> | 🟢 65% bull | 🟢 ▲ 0.8% | 🛒 Dip buy | Retail traders are loading call options after the recent pullback. |
+| 2 | ▲1 | **MU**<br><sub>Micron Technology</sub> | 58<br><sub>🟢▲ +32%</sub> | – | 🟢 ▲ 7.6% | – | – |
+| 3 | ▲1 | **SNDK**<br><sub>Sandisk</sub> | 52<br><sub>🟢▲ +30%</sub> | – | 🟢 ▲ 16.0% | – | – |
+| 4 | 🆕 | **TSLA**<br><sub>Tesla</sub> | 47<br><sub>🔥 +292%</sub> | – | 🟢 ▲ 5.2% | – | – |
+| 5 | ▼3 | **AMD**<br><sub>AMD</sub> | 45<br><sub>🔴▼ -10%</sub> | – | 🟢 ▲ 4.6% | – | – |
+| 6 | ▼1 | **DTE**<br><sub>DTE Energy</sub> | 40<br><sub>🟢▲ +14%</sub> | – | 🟢 ▲ 0.1% | – | – |
+| 7 | 🆕 | **PS**<br><sub>Pluralsight</sub> | 36 | – | 🟢 ▲ 3.1% | – | – |
+| 8 | ▼2 | **SOXL**<br><sub>Direxion Shares ETF Trust - Direxion Daily Semiconductor Bul</sub> | 35<br><sub>🟢▲ +35%</sub> | 🟢 55% bull | 🟢 ▲ 14.2% | 🚀 Momentum | Traders are split between buying dips and taking fast profits. |
+| 9 | 🆕 | **GOOG**<br><sub>Alphabet \(Google\)</sub> | 32<br><sub>🔥 +220%</sub> | – | 🟢 ▲ 0.5% | – | – |
+| 10 | 🆕 | **NBIS**<br><sub>Nebius Group</sub> | 31<br><sub>🔥 +182%</sub> | – | 🟢 ▲ 5.3% | – | – |
 
-<img src="assets/trend.svg?v=202611262236" alt="Retail sentiment trend over the last sessions" width="100%">
+<img src="assets/trend.svg?v=202611272215" alt="Retail sentiment trend over the last sessions" width="100%">
 
 <sub>Mentions: ApeWisdom (measured) · Prices: last session, Yahoo Finance · Mood: AI-scored from forum text</sub><br>
 <sub>Scanning 12 communities: r/wallstreetbets · r/stocks · r/investing · r/ValueInvesting · r/StockMarket · r/options · r/Superstonk · r/RobinHood · r/smallstreetbets · r/StocksAndTrading · r/Daytrading · r/pennystocks</sub>

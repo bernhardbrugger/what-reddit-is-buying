@@ -389,6 +389,74 @@
      "bullish_pct": 50
     }
    ]
+  },
+  {
+   "date": "2026-11-27",
+   "bullish_pct": 62,
+   "bearish_pct": 38,
+   "headline": "Retail traders load call options as broad risk appetite returns",
+   "top": [
+    {
+     "ticker": "NVDA",
+     "rank": 1,
+     "mentions": 341,
+     "bullish_pct": 65
+    },
+    {
+     "ticker": "MU",
+     "rank": 2,
+     "mentions": 58,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SNDK",
+     "rank": 3,
+     "mentions": 52,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "TSLA",
+     "rank": 4,
+     "mentions": 47,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "AMD",
+     "rank": 5,
+     "mentions": 45,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "DTE",
+     "rank": 6,
+     "mentions": 40,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "PS",
+     "rank": 7,
+     "mentions": 36,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "SOXL",
+     "rank": 8,
+     "mentions": 35,
+     "bullish_pct": 55
+    },
+    {
+     "ticker": "GOOG",
+     "rank": 9,
+     "mentions": 32,
+     "bullish_pct": 50
+    },
+    {
+     "ticker": "NBIS",
+     "rank": 10,
+     "mentions": 31,
+     "bullish_pct": 50
+    }
+   ]
   }
  ]
 }
